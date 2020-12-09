@@ -3,7 +3,7 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define e = Character("Eileen")
+define v = Character("Mysterious Voice")
 
 
 # The game starts here.
@@ -16,17 +16,19 @@ label start:
 
     scene bg room
 
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
+    v "Hello, and welcome to the pre-alpha of Love Takes Flight!"
 
-    show eileen happy
+    v "If you're seeing this, everything is working well!"
 
-    # These display lines of dialogue.
+    v "Here's a picture of the ultimate waifu of this game!"
 
-    e "You've created a new Ren'Py game."
+    v "...well a concept at least"
 
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    show 737
+
+    v "Isn't she cute?"
+
+    v "Well that's all for now! Thanks for testing."
 
     # This ends the game.
 
