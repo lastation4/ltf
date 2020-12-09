@@ -18,7 +18,7 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene bg room
+    scene bg prealpha
 
     v "Hello, and welcome to the pre-alpha of Love Takes Flight!"
 
@@ -28,11 +28,19 @@ label start:
 
     v "...well a concept at least"
 
-    show 737
+    show 737 with moveinright
 
     v "Isn't she cute?"
 
+    hide 737 with moveoutleft
+
+    v "Here's another girl!"
+
+    show crj with moveinright
+
     v "Well let's get started."
+
+    scene black with dissolve
 
 label gameStart:
 
@@ -76,6 +84,10 @@ label gameStart:
 
     m "Time to get going, don't want to be late on the first day of school!"
 
+    scene black with dissolve
+
+    scene bg hallway with dissolve
+
     "You rush out of your bedroom, and run head-first into your sister."
 
     if father_is_airbus:
@@ -92,7 +104,7 @@ label gameStart:
         "Your sister quickly darts to the left of you, and hops down the stairs."
         sister_boeing "HEY! HURRY UP! YOU DON'T WANT TO BE LATE! DAD'S WAITING!"
         "You sigh. She's always been this hyper. You decide to head downstairs and meet up with your father."
-
+    scene black with dissolve
 label driveToSchool:
 
 
