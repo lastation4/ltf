@@ -88,9 +88,12 @@ label gameStart:
     else:
         show 757
         sister_boeing "Waah! Watch out! We're going to crash! Nyeaowwwww!"
-        "Your sister quickly darts to the left of you, and quickly hops down the stairs."
+        hide 757 with moveoutleft
+        "Your sister quickly darts to the left of you, and hops down the stairs."
         sister_boeing "HEY! HURRY UP! YOU DON'T WANT TO BE LATE! DAD'S WAITING!"
         "You sigh. She's always been this hyper. You decide to head downstairs and meet up with your father."
+
+label driveToSchool:
 
 
 
