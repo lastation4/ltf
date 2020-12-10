@@ -285,7 +285,7 @@ label tripleseven_noresponse:
 
 
 label walkToGym:
-    scene bg outside_gym
+    scene bg inside_gym
 
     m "Looks like we made it on time!"
     tripleseven "Y-yeah!"
@@ -348,6 +348,13 @@ label oc_777_bye:
 
 
 label openingCeremony:
+    scene bg gym_stage
+
+    
+
+    nameunknown "Ahem. Quiet please, quiet. "
+    "The clamour of the gym quiets down to a whisper. "
+
     v "DEVNOTE: The StuCo president makes a speech after the two team chairmen make their opening speeches, trying to sell their teams to the students. "
 
 label afterCeremony:
