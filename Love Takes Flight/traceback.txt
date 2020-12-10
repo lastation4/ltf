@@ -1,24 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 141, in script
-    if !father_is_airbus:
-SyntaxError: invalid syntax (game/script.rpy, line 141)
+  File "game/script.rpy", line 263, in script
+    tripleseven "Y-you're a transfer student, right?"
+  File "game/script.rpy", line 263, in <module>
+    tripleseven "Y-you're a transfer student, right?"
+NameError: name 'affinity_777' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 141, in script
-    if !father_is_airbus:
-  File "C:\Users\steve\Downloads\RenPy\renpy-7.3.5-sdk\renpy\ast.py", line 1832, in execute
-    if renpy.python.py_eval(condition):
-  File "C:\Users\steve\Downloads\RenPy\renpy-7.3.5-sdk\renpy\python.py", line 2057, in py_eval
-    code = py_compile(code, 'eval')
-  File "C:\Users\steve\Downloads\RenPy\renpy-7.3.5-sdk\renpy\python.py", line 692, in py_compile
-    raise e
-SyntaxError: invalid syntax (game/script.rpy, line 141)
+  File "game/script.rpy", line 263, in script
+    tripleseven "Y-you're a transfer student, right?"
+  File "C:\Users\steve\Downloads\RenPy\renpy-7.3.5-sdk\renpy\ast.py", line 914, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Users\steve\Downloads\RenPy\renpy-7.3.5-sdk\renpy\python.py", line 2028, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "game/script.rpy", line 263, in <module>
+    tripleseven "Y-you're a transfer student, right?"
+NameError: name 'affinity_777' is not defined
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
 Love Takes Flight pre-alpha 0.1
-Wed Dec 09 16:22:17 2020
+Thu Dec 10 00:33:35 2020
