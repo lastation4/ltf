@@ -30,18 +30,4 @@ label start:
 
     # This ends the game.
 
-    jump act1
-
-    return
-
-
-label act1:
-    scene bg room
-
-    show eileen happy
-
-    e "This is to test some of the functionality of RenPy."
-
-    e "We don't got a story, yet... Stay tuned for that!"
-
     return
