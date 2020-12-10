@@ -114,6 +114,8 @@ label start:
 
     scene black with dissolve
 
+    jump gameEnd
+
 label gameStart:
 
     scene bg room
@@ -404,8 +406,6 @@ label oc_777_bye:
     "Maybe you should have invited her to sit with you...there are two open seats next to each other over there..."
     m "She's an upperclassmen, she's obviously got more important things to do than to sit with the transfer student..."
     jump openingCeremony
-
-
 
 label openingCeremony:
     scene bg gym_stage
