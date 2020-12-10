@@ -410,8 +410,6 @@ label oc_777_bye:
 label openingCeremony:
     scene bg gym_stage
 
-
-
     nameunknown "Ahem. Quiet please, quiet. "
     "The clamour of the gym quiets down to a whisper. "
 
