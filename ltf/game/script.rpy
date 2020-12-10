@@ -16,11 +16,6 @@ label start:
 
     scene bg room
 
-
-    "Looking out to the birds flying up high, I sometimes wish I could do the same"
-
-    "The only people who can do so are the Hikokito..."
-
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
@@ -29,20 +24,9 @@ label start:
 
     # These display lines of dialogue.
 
+    e "You've created a new Ren'Py game."
 
-    e "Hey, ___, have they responded to your application, yet?"
-
-    "N-No, not yet"
-
-    e "Don't worry, they'll get back with you on it, I'm sure! See you!"
-
-    hide eileen
-
-    "Each time I'm asked that question, my mind plays out the words of the inevitable rejection letter."
-
-    "No doubt about it... I've been color-blind my whole life... And color-blindedness is an automatic disqualifier."
-
-    "So, why did I even bother in the first place..?"
+    e "Once you add a story, pictures, and music, you can release it to the world!"
 
     # This ends the game.
 
