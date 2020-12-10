@@ -240,8 +240,6 @@ label arriveAtSchool:
 
     tripleseven "L-lovely weather we've been having..."
 
-
-
     menu:
         "She's trying to make small talk with you...better change the subject..."
         "Y...yeah...weather's been nice...":
@@ -287,8 +285,67 @@ label tripleseven_noresponse:
 
 
 label walkToGym:
-    v "DEVNOTE: Continue the conversation depending on affinity with 777, affinity 1, she'll sit with you, affinity 0, you have to convince her, affinity -1, she's sitting with her \"friends\""
-    v "DEVNOTE: 777 doesn't have any friends..."
+    scene bg outside_gym
+
+    m "Looks like we made it on time!"
+    tripleseven "Y-yeah!"
+    "She looks around looking for a seat to take."
+
+    if affinity_777 >= 1:
+        menu:
+            "..."
+            "There are two seats over there! Let's grab them!":
+                $ scroat += 1
+                $ affinity_777 += .25
+                jump oc_777_sitwith
+
+            "I'll see you later, I should sit with my classmates. ":
+                $ affinity_777 -= .25
+                jump oc_777_bye
+    elif affinity_777 == 0:
+        m "Hey, I see two seats over there, we should get them!"
+        show 777chan_surprised
+        tripleseven "Y-yeah, but I should sit with my class..."
+        menu:
+            "..."
+            "Don't worry about that, they'll see you later in class. Besides I enjoy your company!":
+                show 777chan_embarassed
+                tripleseven "Y-you do?"
+                m "You're the first person I meet at my new school and you're super friendly, of course I do!"
+                show 777chan_poke_finger_together
+                $ scroat +=.5
+                $ affinity_777 += .25
+                jump oc_777_sitwith
+            "You're right, I'll see you around then.":
+                $ affinity_777 -= .25
+                jump oc_777_bye
+
+    else:
+        m "I see a seat over there, I'll see you later, yeah 777?"
+        show 777chan_finger_poke_together
+        tripleseven "Y-yeah...later..."
+        hide 777chan_finger_poke_together
+        "You find a seat in the back row; there are not many open ones left."
+        jump openingCeremony
+
+label oc_777_sitwith:
+    show 777chan_flustered
+    tripleseven "O-okay, that works, let's grab them before anyone else does."
+    hide 777chan_flustered with moveoutleft
+    "The two of you hurry off to take your seats before the ceremony starts."
+    jump openingCeremony
+
+label oc_777_bye:
+    show 777chan_disappointed
+    "777 makes it obvious that she wanted to sit with you..."
+    tripleseven "O-okay...I'll go find my friends..."
+    hide 777chan_disappointed with moveoutleft
+    "She hurries off."
+    "Maybe you should have invited her to sit with you...there are two open seats next to each other over there..."
+    m "She's an upperclassmen, she's obviously got more important things to do than to sit with the transfer student..."
+    jump openingCeremony
+
+
 
 label openingCeremony:
     v "DEVNOTE: The StuCo president makes a speech after the two team chairmen make their opening speeches, trying to sell their teams to the students. "
@@ -319,17 +376,31 @@ label d1_walkhome:
     v "DEVNOTE: If you fail, you mention 777, and she teases you about being into older women (and you lose .25 affinity with A320). It's not like that...yet. "
     v "DEVNOTE: BRANCH POINT: Do you study, go to the arcade, or play MMO games at home all night? "
 label d1_study:
+    v "DEVNOTE: You decide to study Flight Dynamics with A320. She quizzes you three times, allowing you to build up your brains score, (total of 1 point if you get all right) and gain .25 affinity with A320 for being a responsible student. "
+    v "DEVNOTE: You finish studying early and both decide that you can either go to the arcade, or play Land of Last Fantasy III together. "
+    v "You can also decline this and go to bed like a limp dick. "
+    menu:
+        "What should A320 and I do now that we're done studying?"
+        "We should go to the arcade!":
+            jump d1_arcade
+        "We should play Land of Last Fantasy III!":
+            jump d1_mmo
+        "I should be getting some sleep...":
+            jump d1_morgana
+
 
 label d1_arcade:
     v "DEVNOTE: You meet up with A320 and both get beaten at a fighting game by a familiar face. A350, the girl that was introduced with you this morning to your class. You three go play a crane game and you win a stuffed cat. You are given a choice of who to give it to."
-    v "DEVNOTE: +2 affinity with A320 if you give it to her (she loves cats), +1 affinity with A350 if you give it to her. +1 affinity with 757/A330 if you decide to give it to your sister. "
+    v "DEVNOTE: +2 affinity with A320 if you give it to her (she loves cats), +1 affinity with A350 if you give it to her. +1 affinity with 757/A330 if you decide to give it to your sister. You also get the option to give it to 777 if your affinity with her is above 1.5 "
 
 label d1_mmo:
-    v "DEVNOTE: You decide to play Land of Last Fantasy with A320, when you receive a whisper from a mysterious character calling themselves only Zoomy McFrickHands (this is CRJ-chan)"
+    v "DEVNOTE: You decide to play Land of Last Fantasy III with A320, when you receive a whisper from a mysterious character calling themselves only Zoomy McFrickHands (this is CRJ-chan)"
     v "DEVNOTE: You get the option to run rifts with A320 (+.25 affinity) or abandon her to play with Zoomy McFrickHands (she's better geared, +1 affinity with CRJ, -.5 with A320)  "
     v "DEVNOTE: If CRJ, you play late into the night with her, killing evil spirits and demons. If A320, she scolds you into going to bed because of school. "
 
-
+label d1_morgana:
+    v "You walk A320 back to her house and bid her goodnight."
+    v "DEVNOTE: You limp dick, go to the shame bed."
 
     # This ends the game.
     v "This is the end of this pre-alpha test of Day 1"
