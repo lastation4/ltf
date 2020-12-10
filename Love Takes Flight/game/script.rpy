@@ -3,7 +3,7 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define v = Character("Mysterious Voice")
+define v = Character("LTFdev")
 define m = Character("Me")
 define father = Character("Father")
 define sister_airbus = Character("A330-chan")
@@ -105,11 +105,45 @@ label gameStart:
         sister_boeing "HEY! HURRY UP! YOU DON'T WANT TO BE LATE! DAD'S WAITING!"
         "You sigh. She's always been this hyper. You decide to head downstairs and meet up with your father."
     scene black with dissolve
+
 label driveToSchool:
 
+    if father_is_airbus:
+        "You and A330 get into the car with your father."
+        scene intro_a330_carwindow
+        "A330 stares out the window."
 
+    else:
+        "You and 757 get into the car with your father"
+        scene intro_757_car
+        "757 sits on her legs and pulls out her phone, playing some random anime game."
 
-    "This is the end of this pre-alpha test."
+    m "Hey sis, I was wondering...what team should I pick? They both have their advantages, but I'm kinda stuck..."
+
+    if father_is_airbus:
+        sister_airbus "It doesn't really matter to me, but shouldn't you just go with the family team? Should be an easy choice."
+        m "You're right, that's probably a good idea. Wouldn't want to make dad mad by picking Boeing..."
+        "You laugh dryly to yourself, and try to change the subject."
+        m "Yeah imagine if I picked Boeing, what would you do Dad?"
+    else:
+        sister_boeing "Obviously Boeing! You don't want to upset Dad after all the hard work he put in landing this job!"
+        m "You're right, that's probably a good idea. Wouldn't want to make dad mad by picking Airbus..."
+        "You and 757 both laugh."
+        m "Yeah imagine if I picked Airbus, what would you do Dad?"
+    father "I'd disown you."
+    m "What...?"
+    if father_is_airbus:
+        sister_airbus "Dad, really? I mean...that's kind of awful to say."
+    else:
+        sister_boeing "DAD! WHY WOULD YOU SAY SUCH A HORRIBLE THING!"
+    "You gulp audibly."
+    m "...you're serious?"
+    if not father_is_airbus:
+        father "Of course not. It's your choice, and I respect the competition and technological innovation that Airbus brings to the market. Without their advanced avionics, Boeing wouldn't have upgraded theirs. Competition is healthy."
+    else:
+        father "Of course not. It's your choice, and I respect the competition and legacy that Boeing has. They do have a way with making their planes look nice. Competition is healthy."
+
+    v "This is the end of this pre-alpha test."
 
     # This ends the game.
 

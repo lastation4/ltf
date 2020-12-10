@@ -1,4 +1,4 @@
-Wed Dec 09 15:34:29 2020
+Wed Dec 09 16:23:13 2020
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
  
@@ -460,24 +460,18 @@ Texture testing:
 - 2048px textures work.
 Root FBO is: 0
 FBO Maximum Texture Size: 2048
-Total time until interface ready: 2.14399981499s
+Total time until interface ready: 2.10299992561s
 - Target is 5 frames in 0.333333333333 seconds.
 - Frame drawn at 0.000000 seconds.
 - Frame drawn at 0.002000 seconds.
-- Frame drawn at 0.006000 seconds.
-- Frame drawn at 0.013000 seconds.
+- Frame drawn at 0.005000 seconds.
+- Frame drawn at 0.012000 seconds.
 - Frame drawn at 0.020000 seconds.
 - 0.020000 seconds to render 5 frames.
 Cleaning stores took 0.00s
 Init translation took 0.00s
 Build styles took 0.00s
-Load screen analysis took 0.02s
+Load screen analysis took 0.01s
 Analyze screens took 0.00s
 Prepare screens took 0.00s
 Running _start took 0.00s
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               t callable
-
-While running game code:
-  File "game/script.rpy", line 95, in script
-    scene black with dissolve(1.0)
-TypeError: 'Dissolve' object is not callable
