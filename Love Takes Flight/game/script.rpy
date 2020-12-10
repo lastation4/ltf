@@ -10,10 +10,21 @@ define sister_airbus = Character("A330-chan")
 define sister_boeing = Character("757-chan")
 define nameunknown = Character("???")
 define tripleseven = Character("777-chan")
+define a320 = Character("A320-chan")
+define b737 = Character("737-chan")
+
 
 define affinity_a330 = 0
 define affinity_757 = 0
 define affinity_777 = 0
+define affinity_a320 = 0
+define affinity_737 = 0
+
+
+
+define brains = 0
+define scroat = 0
+
 
 # The game starts here.
 
@@ -58,7 +69,7 @@ label gameStart:
 
     "You hear a knock at your door and a familiar voice."
 
-    father "Wake up, you'll be late for the entrance ceremony if you don't catch the train soon!"
+    father "Wake up, you'll be late for the entrance ceremony if you don't leave now!"
 
     "You roll out of bed slowly and begin to gather your things."
 
@@ -66,10 +77,10 @@ label gameStart:
     "Pants: check."
     "Schoolbag: check."
 
-    father "Forget the train, I'll drop you by school on my way to work."
+    father "Forget walking, we're out of time. I'll drop you by school on my way to work."
 
     "That's right, your father is one of the two chairmen at your new school."
-    "The school you will attend is quite different from that of other schools, in that during the entrance ceremony, you must pick a \"team\" that you must join."
+    "The school you will attend is quite different from that of other schools, in that after the entrance ceremony, you must pick a \"team\" that you must join."
 
     m "I wonder what team I will join... Probably should pick the one that Dad is the chairman of."
 
@@ -103,6 +114,7 @@ label gameStart:
         m "S-sorry sis, I'm just really excited and wasn't really thinking..."
         sister_airbus "Well, maybe think next time! We're going to be late if we don't get going soon!"
         "You nod, and go downstairs with her and meet up with your father."
+        hide a330_scolding with moveoutleft
     else:
         show 757
         nameunknown "Waah! Watch out! We're going to crash! Nyeaowwwww!"
@@ -177,7 +189,7 @@ label arriveAtSchool:
     "A bell chimes in the distance...You'd better hurry off to the opening ceremony!"
 
     m "See ya Dad! Gotta go!"
-    hide father with moveoutleft
+    hide father
     scene bg school_outside_main_campus
 
     "You get out of the car and rush off to the school gym."
@@ -190,7 +202,7 @@ label arriveAtSchool:
 
     "...you look around trying to get someone's attention..."
 
-    show 777chan_flustered
+    show 777chan
 
     "You spot a Senior that looks like she's either lost, or confused..."
 
@@ -239,9 +251,6 @@ label arriveAtSchool:
         "...":
             jump tripleseven_noresponse
 
-
-
-
 label tripleseven_classrank:
     $ affinity_777 -= 1
 
@@ -249,6 +258,7 @@ label tripleseven_classrank:
     tripleseven "Oh...um...Boeing..."
 
     "She's a Boeing girl, I should have known that!"
+    "Now I look like an idiot!"
 
     jump walkToGym
 
@@ -278,11 +288,49 @@ label tripleseven_noresponse:
 
 label walkToGym:
     v "DEVNOTE: Continue the conversation depending on affinity with 777, affinity 1, she'll sit with you, affinity 0, you have to convince her, affinity -1, she's sitting with her \"friends\""
+    v "DEVNOTE: 777 doesn't have any friends..."
 
 label openingCeremony:
     v "DEVNOTE: The StuCo president makes a speech after the two team chairmen make their opening speeches, trying to sell their teams to the students. "
 
+label afterCeremony:
+    v "DEVNOTE: Depending on your affinity with 777 you either walk to class with her or your sister. A330 is not too happy about having to be seen with you."
+
+label d1_classroom_morning:
+    v "DEVNOTE: You sit in the row closest to the window, second from the back obviously. A340-sensei is introduced and wow she's a whore. Like she seriously needs to just get laid, but you're not the one to do that!"
+    v "DEVNOTE: This is where you make your team choice. "
+    v "DEVNOTE: You'll be introduced as a transfer student with A350. You learn about what she likes. "
+    v "DEVNOTE: Your seat neighbor will be A320 or 737 depending on your team choice. "
+    v "DEVNOTE: If you pick Boeing, 737 will drop her pencil during class notes time and you'll get it for her, sparking a small conversation where you can gain 1 affinity if done right. Not like she wants you to help her or anything...b-baka..."
+    v "DEVNOTE: If you pick Airbus, A320 will end up helping you with your math classwork, as you end up getting confused. You can gain 1 affinity with her depending on your answer to the quiz question, after she helps you. "
+
+label d1_lunchtime:
+    v "DEVNOTE: You spend lunchtime alone on day 1, and depending on affinity, may notice that 737 does not have a lunch. Since she was so abrasive earlier, you don't question her motives, but make a mental note of it. "
+    v "DEVNOTE: 737 is actually quite poor and sometimes cannot afford a lunch, due to restrictions that have left her family quite broke. (737 MAX fiasco)"
+
+label d1_classrom_afternoon:
+    v "DEVNOTE: You have a pop quiz on Flight Dynamics and are called to answer a question a la Persona style. Gain .25 affinity if you get the question right, lose .5 affinity if you get it wrong..."
+
+label d1_classroom_afterschool:
+    v "DEVNOTE: You catch up with 777 on her way out of the school building (if your affinity is 1) and tell her about what team you chose. +1 affinity if you chose Boeing. +0 if you chose Airbus. You say goodbye to 777 and wish her a good night."
+label d1_walkhome:
+    v "DEVNOTE: You walk home with your sister (if Boeing) and your childhood friend A320. You make smalltalk about the day, and +1 affinity with A320 if you picked Airbus team. +1 with sister if you picked Boeing. No minuses. "
+    v "DEVNOTE: A320 teases you about if there are any hot girls in your class. Random event here to see if you have the scroat to call her hot to her face. Very low chance, but +1 affinity with A320 if you pull it off."
+    v "DEVNOTE: If you fail, you mention 777, and she teases you about being into older women (and you lose .25 affinity with A320). It's not like that...yet. "
+    v "DEVNOTE: BRANCH POINT: Do you study, go to the arcade, or play MMO games at home all night? "
+label d1_study:
+
+label d1_arcade:
+    v "DEVNOTE: You meet up with A320 and both get beaten at a fighting game by a familiar face. A350, the girl that was introduced with you this morning to your class. You three go play a crane game and you win a stuffed cat. You are given a choice of who to give it to."
+    v "DEVNOTE: +2 affinity with A320 if you give it to her (she loves cats), +1 affinity with A350 if you give it to her. +1 affinity with 757/A330 if you decide to give it to your sister. "
+
+label d1_mmo:
+    v "DEVNOTE: You decide to play Land of Last Fantasy with A320, when you receive a whisper from a mysterious character calling themselves only Zoomy McFrickHands (this is CRJ-chan)"
+    v "DEVNOTE: You get the option to run rifts with A320 (+.25 affinity) or abandon her to play with Zoomy McFrickHands (she's better geared, +1 affinity with CRJ, -.5 with A320)  "
+    v "DEVNOTE: If CRJ, you play late into the night with her, killing evil spirits and demons. If A320, she scolds you into going to bed because of school. "
+
+
 
     # This ends the game.
-    v "This is the end of this pre-alpha test."
+    v "This is the end of this pre-alpha test of Day 1"
     return
