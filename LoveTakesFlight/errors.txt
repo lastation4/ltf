@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 386: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
-    "We should play Land of Last Fantasy III!"
-                                              ^
+File "game/script.rpy", line 24: expected 'word' not found.
+    define
+          ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Thu Dec 10 12:13:21 2020
+Thu Dec 10 14:27:18 2020
