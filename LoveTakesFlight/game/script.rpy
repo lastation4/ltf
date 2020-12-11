@@ -57,15 +57,9 @@ define dex = 0
 #WIS is a special stat that will help you make the right decision for girls that you have over 5 affinity with.
 define wis = 0
 
-
-
 define prealpha = False
 
-
 # The game starts here.
-
-
-
 
 label start:
 
@@ -145,7 +139,6 @@ label gameStart:
     "The school you will attend is quite different from that of other schools, in that after the entrance ceremony, you must pick a \"team\" that you must join."
 
     m "I wonder what team I will join... Probably should pick the one that Dad is the chairman of."
-
 
     ##randomly pick which "team" your father is chairing
 
@@ -291,18 +284,14 @@ label arriveAtSchool:
     scene bg school_outside_main_campus
 
     "You get out of the car and rush off to the school gym."
-
     "...at least you would if you knew where it was..."
-
     "..."
-
     "You decide to ask someone where the gym is."
-
     "...you look around trying to get someone's attention..."
 
     show 777chan
 
-    "You spot a Senior that looks like she's either lost, or confused..."
+    "You spot a third year that looks like she's either lost, or confused..."
 
     m "Excuse me, do you know where the gym is? I don't want to be late for the ceremony."
 
@@ -316,7 +305,7 @@ label arriveAtSchool:
 
     #show 777chan_shy
 
-    "She points to a large building that has a banner on it, which reads \"Welcome New Cadets\""
+    "She points to a large building that has a banner on it, reading \"Welcome New Cadets\""
 
     m "How could I miss that. Wow. You probably think I'm an idiot."
 
@@ -364,7 +353,6 @@ label b777_smalltalk:
     b777 "..."
     jump walkToGym
 
-
 label b777_noresponse:
     $ affinity_777 += 1
     #show 777chan_finger_poke_together
@@ -381,14 +369,12 @@ label b777_noresponse:
     else:
         m "Guess I've been watching too many gameshows. Sorry."
 
-
 label walkToGym:
     scene bg inside_gym
 
     m "Looks like we made it on time!"
     b777 "Y-yeah!"
     "She looks around looking for a seat to take."
-
     if affinity_777 >= 1:
         menu:
             "..."
@@ -472,11 +458,13 @@ label d1_classrom_afternoon:
 
 label d1_classroom_afterschool:
     v "DEVNOTE: You catch up with 777 on her way out of the school building (if your affinity is 1) and tell her about what team you chose. +1 affinity if you chose Boeing. +0 if you chose Airbus. You say goodbye to 777 and wish her a good night."
+
 label d1_walkhome:
     v "DEVNOTE: You walk home with your sister (if Boeing) and your childhood friend A320. You make smalltalk about the day, and +1 affinity with A320 if you picked Airbus team. +1 with sister if you picked Boeing. No minuses. "
     v "DEVNOTE: A320 teases you about if there are any hot girls in your class. Random event here to see if you have the confidence to call her hot to her face. Very low chance, but +1 affinity with A320 if you pull it off."
     v "DEVNOTE: If you fail, you mention 777, and she teases you about being into older women (and you lose .25 affinity with A320). It's not like that...yet. "
     v "DEVNOTE: BRANCH POINT: Do you study, go to the arcade, or play MMO games at home all night? "
+
 label d1_study:
     v "DEVNOTE: You decide to study Flight Dynamics with A320. She quizzes you three times, allowing you to build up your brains score, (total of 1 point if you get all right) and gain .25 affinity with A320 for being a responsible student. "
     v "DEVNOTE: You finish studying early and both decide that you can either go to the arcade, or play Land of Last Fantasy III together. "
@@ -490,20 +478,22 @@ label d1_study:
         "I should be getting some sleep...":
             jump d1_morgana
 
-
 label d1_arcade:
     v "DEVNOTE: You meet up with A320 and both get beaten at a fighting game by a familiar face. A350, the girl that was introduced with you this morning to your class. You three go play a crane game and you win a stuffed cat. You are given a choice of who to give it to."
     v "DEVNOTE: +2 affinity with A320 if you give it to her (she loves cats), +1 affinity with A350 if you give it to her. +1 affinity with 757/A330 if you decide to give it to your sister. You also get the option to give it to 777 if your affinity with her is above 1.5 "
     jump gameEnd
+
 label d1_mmo:
     v "DEVNOTE: You decide to play Land of Last Fantasy III with A320, when you receive a whisper from a mysterious character calling themselves only Zoomy McFrickHands (this is CRJ-chan)"
     v "DEVNOTE: You get the option to run rifts with A320 (+.25 affinity) or abandon her to play with Zoomy McFrickHands (she's better geared, +1 affinity with CRJ, -.5 with A320)  "
     v "DEVNOTE: If CRJ, you play late into the night with her, killing evil spirits and demons. If A320, she scolds you into going to bed because of school. "
     jump gameEnd
+
 label d1_morgana:
     v "You walk A320 back to her house and bid her goodnight."
     v "DEVNOTE: You limp dick, go to the shame bed."
     jump gameEnd
+
 label gameEnd:
     # This ends the game.
     v "This is the end of this pre-alpha test of Day 1"
