@@ -7,6 +7,7 @@
 #define some administrative characters
 define v = Character("lastation4")
 define nameunknown = Character("???")
+define two = Character("The Two of You")
 
 #define yourself
 define m = Character("Me")
@@ -58,20 +59,24 @@ define wis = 0
 
 
 
-define prealpha = True
+define prealpha = False
 
 
 # The game starts here.
 
-if prealpha == True:
-    jump start
-else:
-    jump gameStart
+
 
 
 label start:
 
     scene bg prealpha
+
+    if prealpha == True:
+        jump alphatest
+    else:
+        jump gameStart
+
+label alphatest:
 
     v "Hello, and welcome to the pre-alpha of Love Takes Flight!"
 
@@ -237,15 +242,47 @@ label driveToSchool:
     m "Okay, that's a relief. Thanks for supporting my decision. "
     "You wonder to yourself what that decision is going to be...Boeing or Airbus..."
     "..."
+    father "We're about there, kiddos. "
 
-    v "DEV NOTES: Filler Conversation with your sister on the way to school."
+    if father_is_airbus:
+        #show a330_sarcasm
+        sister_airbus "Great, how exciting."
+        #hide a330_sarcasm
+        show father
+        father "You could at least show some enthusiasm. Does anything excite you anymore?"
+        hide father
+        #show a330_angry
+        sister_airbus "Hmph."
+        #hide a330_angry
+        #show a330_cellphone_music
+        "Your sister does what she always does when dad's being an asshole; pops in her earbuds and blasts music."
+        "..."
+        "You can cut the tension in the car with a knife."
+        show father
+        father "We're here. See you both later. I've got a job to do."
+        "You both get out of the car and go your separate ways."
+    else:
+        #show 757_excited
+        sister_boeing "YAY SCHOOL! I CAN'T WAIT FOR FLYING CLASS!"
+        sister_boeing "Dad, I'm picking Boeing!"
+        #hide 757_excited
+        show father
+        father "Good! You remember the mantra?"
+        hide father
+        sister_boeing "Of course!"
+        #show 757_yell
+        sister_boeing "If it isn't Boeing, I'm not going!"
+        "The three of you laugh."
+        show father
+        father "We're here. Now both of you, remember to pick Boeing! Make me proud!"
+        hide father
+        #show 757_excited
+        two "Alright!"
 
     scene black with dissolve
 
 label arriveAtSchool:
     scene bg car
-    show father
-    father "At last, after all that awful traffic we're here!"
 
     "A bell chimes in the distance...You'd better hurry off to the opening ceremony!"
 
