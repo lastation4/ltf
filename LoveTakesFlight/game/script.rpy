@@ -14,8 +14,8 @@ define m = Character("Me")
 
 #define your family
 define father = Character("Father")
-define sister_airbus = Character("Airbus A330-300")
-define sister_boeing = Character("Boeing 757-200")
+define a330 = Character("Airbus A330-300")
+define b757 = Character("Boeing 757-200")
 
 #define side characters
 
@@ -174,7 +174,7 @@ label gameStart:
         nameunknown "Hey. Maybe watch where you're going, idiot."
         "Your sister, A330 looks at you, expecting an apology."
         m "S-sorry sis, I'm just really excited and wasn't really thinking..."
-        sister_airbus "Well, maybe think next time! We're going to be late if we don't get going soon!"
+        a330 "Well, maybe think next time! We're going to be late if we don't get going soon!"
         "You nod, and go downstairs with her and meet up with your father."
         hide a330 with moveoutleft
         #hide a330_scolding with moveoutleft
@@ -183,7 +183,7 @@ label gameStart:
         nameunknown "Waah! Watch out! We're going to crash! Nyeaowwwww!"
         hide 757 with moveoutleft
         "Your sister, 757, quickly darts to the left of you, and hops down the stairs."
-        sister_boeing "HEY! HURRY UP! YOU DON'T WANT TO BE LATE! DAD'S WAITING!"
+        b757 "HEY! HURRY UP! YOU DON'T WANT TO BE LATE! DAD'S WAITING!"
         "You sigh. She's always been this hyper. You decide to head downstairs and meet up with your father."
     scene black with dissolve
 
@@ -205,13 +205,13 @@ label driveToSchool:
 
     if father_is_airbus:
         #show a330_shrug
-        sister_airbus "It doesn't really matter to me, but shouldn't you just go with the family team? Should be an easy choice."
+        a330 "It doesn't really matter to me, but shouldn't you just go with the family team? Should be an easy choice."
         m "You're right, that's probably a good idea. Wouldn't want to make dad mad by picking Boeing..."
         "You laugh dryly to yourself, and try to change the subject."
         m "Yeah imagine if I picked Boeing, what would you do Dad?"
     else:
         #show 757_phone_talk
-        sister_boeing "Obviously Boeing! You don't want to upset Dad after all the hard work he put in landing this job!"
+        b757 "Obviously Boeing! You don't want to upset Dad after all the hard work he put in landing this job!"
         m "You're right, that's probably a good idea. Wouldn't want to make dad mad by picking Airbus..."
         #show 757_phone_laugh
         "You and 757 both laugh."
@@ -221,17 +221,17 @@ label driveToSchool:
     m "What...?"
     if father_is_airbus:
         #show a330_annoyed
-        sister_airbus "Dad, really? I mean...that's kind of awful to say."
+        a330 "Dad, really? I mean...that's kind of awful to say."
     else:
         #show 757_shocked
-        sister_boeing "DAD! WHY WOULD YOU SAY SUCH A HORRIBLE THING!"
+        b757 "DAD! WHY WOULD YOU SAY SUCH A HORRIBLE THING!"
     "You gulp audibly."
     m "...you're serious?"
     show father
     if not father_is_airbus:
         father "Of course not. It's your choice, and I respect the competition and technological innovation that Airbus brings to the market. Without their advanced avionics, Boeing wouldn't have upgraded theirs. Competition is healthy."
         #show 757_scolding
-        sister_boeing "Dad! Don't play around like that!"
+        b757 "Dad! Don't play around like that!"
         #show 757_smile
     else:
         father "Of course not. It's your choice, and I respect the competition and legacy that Boeing has. They do have a way with making their planes look nice. Competition is healthy."
@@ -245,13 +245,13 @@ label driveToSchool:
 
     if father_is_airbus:
         #show a330_sarcasm
-        sister_airbus "Great, how exciting."
+        a330 "Great, how exciting."
         #hide a330_sarcasm
         show father
         father "You could at least show some enthusiasm. Does anything excite you anymore?"
         hide father
         #show a330_angry
-        sister_airbus "Hmph."
+        a330 "Hmph."
         #hide a330_angry
         #show a330_cellphone_music
         "Your sister does what she always does when dad's being an asshole; pops in her earbuds and blasts music."
@@ -262,15 +262,15 @@ label driveToSchool:
         "You both get out of the car and go your separate ways."
     else:
         #show 757_excited
-        sister_boeing "YAY SCHOOL! I CAN'T WAIT FOR FLYING CLASS!"
-        sister_boeing "Dad, I'm picking Boeing!"
+        b757 "YAY SCHOOL! I CAN'T WAIT FOR FLYING CLASS!"
+        b757 "Dad, I'm picking Boeing!"
         #hide 757_excited
         show father
         father "Good! You remember the mantra?"
         hide father
-        sister_boeing "Of course!"
+        b757 "Of course!"
         #show 757_yell
-        sister_boeing "If it isn't Boeing, I'm not going!"
+        b757 "If it isn't Boeing, I'm not going!"
         "The three of you laugh."
         show father
         father "We're here. Now both of you, remember to pick Boeing! Make me proud!"
