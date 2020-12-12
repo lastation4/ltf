@@ -61,6 +61,8 @@ define dex = 0
 #WIS is a special stat that will help you make the right decision for girls that you have over 5 affinity with.
 define wis = 0
 
+define sat_with_777 = False
+
 define prealpha = False
 
 # The game starts here.
@@ -536,6 +538,22 @@ label openingCeremony:
     hide 747
 
 label afterCeremony:
+    if sat_with_777:
+        b777 ""
+    elif father_is_airbus:
+        show a330
+        "You see your sister, A330, in the crowd. Being the only familiar face you can see you make your way towards her."
+        "She spots you. She doesn't look too happy to see you"
+        a330 "..."
+        a330 "Are you trying to humiliate me? It's hard enough to make friends without you repelling other people away"
+        "Sorry, I figured it would be best to stick together."
+        a330 "Of course you would. Just try not to draw too much attention to yourself."
+        a330 "It seems you have chased one person away already, as it is. I probably can't talk to that 777 girl anymore thanks to you."
+        ""
+    else:
+        "You see your sister, 757, in the crowd. Being the only familiar face you can see you make your way towards her."
+        show 757
+        "She gives you a friendly wave"
     v "DEVNOTE: Depending on your affinity with 777 you either walk to class with her or your sister. A330 is not too happy about having to be seen with you."
 
 label d1_classroom_morning:
