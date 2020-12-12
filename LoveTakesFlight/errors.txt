@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 24: expected 'word' not found.
-    define
-          ^
+File "game/script.rpy", line 483: expected statement.
+    affinity_777 +=.25
+                 ^
+
+File "game/script.rpy", line 525: expected statement.
+    affinity_777 +=.25
+                 ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Thu Dec 10 14:27:18 2020
+Sat Dec 12 14:01:01 2020
