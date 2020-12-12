@@ -480,7 +480,7 @@ label openingCeremony:
                     m "That's right. And I'm not going to let some bitch talk like that!"
                     b777 "...you're not wrong..."
                     m "Thanks for your support Triple Seven."
-                    affinity_777 +=.25
+                    $ affinity_777 +=.25
             "...":
                 $ confidence -= .5
                 if with_777:
@@ -522,7 +522,7 @@ label openingCeremony:
                     m "That's right. And I'm not going to let some bitch talk like that!"
                     b777 "...you're not wrong..."
                     m "Thanks for your support Triple Seven."
-                    affinity_777 +=.25
+                    $ affinity_777 +=.25
             "...":
                 $ confidence -= .5
                 if with_777:
