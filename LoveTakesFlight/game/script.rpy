@@ -9,14 +9,18 @@ define v = Character("lastation4")
 define nameunknown = Character("???")
 define two = Character("The Two of You")
 
-#define yourself
+#define yourself...wow that's deep
 define m = Character("Me")
-
 
 #define your family
 define father = Character("Father")
 define sister_airbus = Character("Airbus A330-300")
 define sister_boeing = Character("Boeing 757-200")
+
+#define side characters
+
+define airbus_chair = Character("Airbus Chairman")
+define boeing_chair = Character("Boeing Chairman")
 
 #define some gorls
 define b777 = Character("Boeing 777-300ER")
@@ -414,6 +418,7 @@ label walkToGym:
 
 label oc_777_sitwith:
     #show 777chan_flustered
+    $ with_777 = True
     b777 "O-okay, that works, let's grab them before anyone else does."
     hide 777chan_flustered with moveoutleft
     "The two of you hurry off to take your seats before the ceremony starts."
@@ -436,7 +441,99 @@ label openingCeremony:
     nameunknown "Ahem. Quiet please, quiet. "
     "The clamour of the gym quiets down to a whisper. "
 
-    v "DEVNOTE: The StuCo president makes a speech after the two team chairmen make their opening speeches, trying to sell their teams to the students. "
+    if father_is_airbus:
+        #show boeing_chair
+        nameunknown "I am the chairman of the Boeing Racing Team, and it is my pleasure to welcome you to this new year at our academy!"
+        boeing_chair "I'd like you all to consider flying or engineering for our team for this year's competition. As you know, we've won the last 4 years straight and would love to have you help us continue that legacy. Our competition may have better technology, but as the record shows..."
+        #show boeing_chair_fist
+        boeing_chair "Technology doesn't stand a chance against Tenacity!"
+        boeing_chair "That's all I have to say on that matter. Now I'll introduce the underdogs, the Airbus Racing Team."
+        #hide boeing_chair
+        #show father
+        father "Ahem, I'm the chair of the the Airbus Racing Team this year, and although I am new, my ideas will lead us to unseating Boeing as the de facto leaders in Planegirl Racing. I'm sure of it!"
+        #hide father
+        "Small giggles erupt in the audience"
+        nameunknown "Nobody can beat Boeing!"
+        nameunknown "If it's not Boeing, I'm not going!"
+        nameunknown "The underdogs think they have a chance! How cute!"
+        #show father_flustered
+        father "Quiet! Quiet please, I'm not finished! I'm sure that our newest technologies that we will deploy at Race #1 will ensure a new day rises for Airbus!"
+        father "That's all I have, now let me introduce the Student Council President, 747!"
+        #hide father_flustered
+        show 747
+        b747 "Thank you \"esteemed\" Airbus Chairman."
+        #show 747_giggle
+        "She giggles to herself, and it is picked up on the microphone."
+        b747 "Ara, ara. Excuse me. I just found your little speech...cute is all. Thinking you could defeat the great Boeing. It's hilarious."
+        b747 "Anyway, if you want power and glory, join Boeing. If you want to strive hard toward nothing, choose Airbus, as they'll do what they do every year: bluster about new technology but not actually deliver at any races."
+
+
+        menu:
+            "You can feel your blood beginning to boil..."
+            "We'll show you, you bloated gas-guzzler!":
+                $ confidence += .5
+                if with_777:
+                    #show 777_shocked
+                    b777 "..."
+                    m "I'm not going to let her say those things about my father!"
+                    b777 "...Airbus-sensei is your father?"
+                    m "That's right. And I'm not going to let some bitch talk like that!"
+                    b777 "...you're not wrong..."
+                    m "Thanks for your support Triple Seven."
+                    affinity_777 +=.25
+            "...":
+                $ confidence -= .5
+                if with_777:
+                    b777 "...she sure has a way of really riling up the students..."
+    else:
+        nameunknown "I am the chairman of the Airbus Racing Team, and it is my pleasure to welcome you to this new year at our academy!"
+        airbus_chair "I'd like you all to consider flying or engineering for our team for this year's competition. As you know, we've won the last 4 years straight and would love to have you help us continue that legacy. Our competition may be tenacious, but as the record shows..."
+        #show airbus_chair_
+        airbus_chair "Tenacity doesn't hold a flame to Progress and Technology!"
+        airbus_chair "That's all I have to say on that matter. Now I'll introduce the underdogs, the Boeing Racing Team."
+        #show father
+        father "Ahem, I'm the chair of the the Boeing Racing Team this year, and although I am new, my ideas will lead us to unseating Airbus as the de facto leaders in Planegirl Racing. I'm sure of it!"
+        #hide father
+        "Small giggles erupt in the audience"
+        nameunknown "Nobody can beat Airbus!"
+        nameunknown "If it's Boeing, I'm not going!"
+        nameunknown "The underdogs think they have a chance! How cute!"
+        #show father_flustered
+        father "Quiet! Quiet please, I'm not finished! I'm sure that our newest technologies that we will deploy at Race #1 will ensure a new day rises for Boeing! We'll show them that we can do technology too!"
+        father "That's all I have, now let me introduce the Student Council President, 747!"
+        #hide father_flustered
+        show 747
+        b747 "Thank you \"esteemed\" Airbus Chairman."
+        #show 747_giggle
+        "747 giglges to herself..."
+        b747 "While I may be a Boeing girl, it's obvious to see the awesome tech that Airbus cranks out every year in the name of the saftey of our sport. They are the true leaders, and don't let Boeing convince you otherwise!"
+        b747 "If you want a safer sport, come engineer or fly for Airbus. If you want nosedives and firey crashes, go with Boeing. They're good at that here lately."
+
+        menu:
+            "You can feel your blood beginning to boil..."
+            "We'll show you, you bloated gas-guzzler!":
+                $ confidence += .5
+                if with_777:
+                    hide 747
+                    #show 777_shocked
+                    b777 "..."
+                    m "I'm not going to let her say those things about my father!"
+                    b777 "...Boeing-sensei is your father?"
+                    m "That's right. And I'm not going to let some bitch talk like that!"
+                    b777 "...you're not wrong..."
+                    m "Thanks for your support Triple Seven."
+                    affinity_777 +=.25
+            "...":
+                $ confidence -= .5
+                if with_777:
+                    hide 747
+                    #show 777_angry
+                    b777 "...she sure has a way of really riling up the students..."
+                    #hide 777_angry
+    b747 "This concludes our ceremony. Please make your way back to your homerooms. Transfer students: you will be making your team selection upon arrival, so please be prepared with your decision. "
+    b747 "I'm sure you'll make the right one."
+    b747 "If you don't...well then that sucks for you."
+    hide 747
 
 label afterCeremony:
     v "DEVNOTE: Depending on your affinity with 777 you either walk to class with her or your sister. A330 is not too happy about having to be seen with you."
