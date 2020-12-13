@@ -549,14 +549,25 @@ label afterCeremony:
         "Sorry, I figured it would be best to stick together."
         a330 "Of course you would. Just try not to draw too much attention to yourself."
         a330 "It seems you have chased one person away already, as it is. I probably can't talk to that 777 girl anymore thanks to you."
-        ""
+        "..."
+        a330 "Just get to your class already"
     else:
         "You see your sister, 757, in the crowd. Being the only familiar face you can see you make your way towards her."
         show 757
         "She gives you a friendly wave"
+        757 "Wasn't that a great speech by dad? Oh! How are you liking school so far?"
+        "Well, I-"
+        "Before you can even get a word out, your sister's attention is stolen by another group of girls"
+        757 "Oh! Gotta go! Byyyeee! Let's talk more later!"
+        hide 757
+        "You find yourself standing alone in the crowded hallway"
     v "DEVNOTE: Depending on your affinity with 777 you either walk to class with her or your sister. A330 is not too happy about having to be seen with you."
 
 label d1_classroom_morning:
+    "You finally find your classroom. The desks are still for the most part empty."
+    "There are desks over by the window."
+    "Perhaps you would get a good view of the training port from there?"
+    
     v "DEVNOTE: You sit in the row closest to the window, second from the back obviously. A340-sensei is introduced and wow she's a whore. Like she seriously needs to just get laid, but you're not the one to do that!"
     v "DEVNOTE: This is where you make your team choice. "
     v "DEVNOTE: You'll be introduced as a transfer student with A350. You learn about what she likes. "
