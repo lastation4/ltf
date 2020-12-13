@@ -10,7 +10,7 @@ define nameunknown = Character("???")
 define two = Character("The Two of You")
 
 #define yourself...wow that's deep
-define m = Character("Me")
+define m = Character("You")
 
 #define your family
 define father = Character("Father")
@@ -96,11 +96,11 @@ label alphatest:
 
     hide 747
 
-    show 777chan
+    show 777
 
     v "This is 777, she's total waifu material."
 
-    hide 777chan
+    hide 777
 
     show crj
 
@@ -123,7 +123,7 @@ label alphatest:
 
 label gameStart:
 
-    scene bg room
+    scene bg sky
 
     "The sun is shining bright through your window; Today is the first day at your new school."
 
@@ -295,7 +295,7 @@ label arriveAtSchool:
     "You decide to ask someone where the gym is."
     "...you look around trying to get someone's attention..."
 
-    show 777chan
+    show 777
 
     "You spot a third year that looks like she's either lost, or confused..."
 
@@ -305,11 +305,11 @@ label arriveAtSchool:
 
     m "Yeah, are you alright?"
 
-    #show 777chan_point_right
+    #show 777_point_right
 
     nameunknown "Y-yeah...I guess. The gym is that large building over there..."
 
-    #show 777chan_shy
+    #show 777_shy
 
     "She points to a large building that has a banner on it, reading \"Welcome New Cadets\""
 
@@ -319,11 +319,11 @@ label arriveAtSchool:
 
     m "Well since we're headed the same way, how about we go together?"
 
-    #show 777chan_blush
+    #show 777_blush
 
     nameunknown "A...ah! Yes, that's a good idea, wouldn't want either of us getting lost..."
 
-    #show 777chan
+    #show 777
 
     nameunknown "B...by the way I'm 777, b-but my friends call me \"Triple Seven\"."
 
@@ -345,7 +345,7 @@ label arriveAtSchool:
 label b777_classrank:
     $ affinity_777 -= 1
 
-    #show 777chan_disappointed
+    #show 777_disappointed
     b777 "Oh...um...Boeing..."
 
     "She's a Boeing girl, I should have known that!"
@@ -355,20 +355,20 @@ label b777_classrank:
 
 label b777_smalltalk:
     #no affinity gain for smalltalk
-    #show 777chan_finger_poke_together
+    #show 777_finger_poke_together
     b777 "..."
     jump walkToGym
 
 label b777_noresponse:
     $ affinity_777 += 1
-    #show 777chan_finger_poke_together
+    #show 777_finger_poke_together
     b777 "Y-you're a transfer student, right?"
     m "Yeah, how'd you know? Is it that obvious?"
-    #show 777chan_glasses_push
+    #show 777_glasses_push
     b777 "Y-yeah, I mean, you have two bars on your uniform, so that means you're...second year."
     b777 "That must mean transfer! R-right?"
     m "Ding ding ding, you're right!"
-    #show 777chan_flustered
+    #show 777_flustered
     b777 "W-what?"
     if not father_is_airbus:
         m "Guess my little sister's demeanor is rubbing off on me..."
@@ -376,10 +376,12 @@ label b777_noresponse:
         m "Guess I've been watching too many gameshows. Sorry."
 
 label walkToGym:
-    scene bg inside_gym
+    scene bg gym_outside
 
     m "Looks like we made it on time!"
     b777 "Y-yeah!"
+
+    scene bg gym
     "She looks around looking for a seat to take."
     if affinity_777 >= 1:
         menu:
@@ -394,15 +396,15 @@ label walkToGym:
                 jump oc_777_bye
     elif affinity_777 == 0:
         m "Hey, I see two seats over there, we should get them!"
-        #show 777chan_surprised
+        #show 777_surprised
         b777 "Y-yeah, but I should sit with my class..."
         menu:
             "..."
             "Don't worry about that, they'll see you later in class. Besides I enjoy your company!":
-                #show 777chan_embarassed
+                #show 777_embarassed
                 b777 "Y-you do?"
                 m "You're the first person I meet at my new school and you're super friendly, of course I do!"
-                #show 777chan_poke_finger_together
+                #show 777_poke_finger_together
                 $ confidence +=.5
                 $ affinity_777 += .25
                 jump oc_777_sitwith
@@ -412,26 +414,26 @@ label walkToGym:
 
     else:
         m "I see a seat over there, I'll see you later, yeah 777?"
-        #show 777chan_finger_poke_together
+        #show 777_finger_poke_together
         b777 "Y-yeah...later..."
-        #hide 777chan_finger_poke_together
+        #hide 777_finger_poke_together
         "You find a seat in the back row; there are not many open ones left."
         jump openingCeremony
 
 label oc_777_sitwith:
-    #show 777chan_flustered
+    #show 777_flustered
     $ with_777 = True
     b777 "O-okay, that works, let's grab them before anyone else does."
-    hide 777chan_flustered with moveoutleft
+    hide 777_flustered with moveoutleft
     "The two of you hurry off to take your seats before the ceremony starts."
     jump openingCeremony
 
 label oc_777_bye:
-    #show 777chan_disappointed
+    #show 777_disappointed
     "777 makes it obvious that she wanted to sit with you..."
     b777 "O-okay...I'll go find my friends..."
-    hide 777chan with moveoutleft
-    #hide 777chan_disappointed with moveoutleft
+    hide 777 with moveoutleft
+    #hide 777_disappointed with moveoutleft
     "She hurries off."
     "Maybe you should have invited her to sit with you...there are two open seats next to each other over there..."
     m "She's an upperclassmen, she's obviously got more important things to do than to sit with the transfer student..."
@@ -468,25 +470,6 @@ label openingCeremony:
         "She giggles to herself, and it is picked up on the microphone."
         b747 "Ara, ara. Excuse me. I just found your little speech...cute is all. Thinking you could defeat the great Boeing. It's hilarious."
         b747 "Anyway, if you want power and glory, join Boeing. If you want to strive hard toward nothing, choose Airbus, as they'll do what they do every year: bluster about new technology but not actually deliver at any races."
-
-
-        menu:
-            "You can feel your blood beginning to boil..."
-            "We'll show you, you bloated gas-guzzler!":
-                $ confidence += .5
-                if with_777:
-                    #show 777_shocked
-                    b777 "..."
-                    m "I'm not going to let her say those things about my father!"
-                    b777 "...Airbus-sensei is your father?"
-                    m "That's right. And I'm not going to let some bitch talk like that!"
-                    b777 "...you're not wrong..."
-                    m "Thanks for your support Triple Seven."
-                    $ affinity_777 +=.25
-            "...":
-                $ confidence -= .5
-                if with_777:
-                    b777 "...she sure has a way of really riling up the students..."
     else:
         nameunknown "I am the chairman of the Airbus Racing Team, and it is my pleasure to welcome you to this new year at our academy!"
         airbus_chair "I'd like you all to consider flying or engineering for our team for this year's competition. As you know, we've won the last 4 years straight and would love to have you help us continue that legacy. Our competition may be tenacious, but as the record shows..."
@@ -505,58 +488,81 @@ label openingCeremony:
         father "That's all I have, now let me introduce the Student Council President, 747!"
         #hide father_flustered
         show 747
-        b747 "Thank you \"esteemed\" Airbus Chairman."
+        b747 "Thank you \"esteemed\" Boeing Chairman."
         #show 747_giggle
         "747 giglges to herself..."
         b747 "While I may be a Boeing girl, it's obvious to see the awesome tech that Airbus cranks out every year in the name of the saftey of our sport. They are the true leaders, and don't let Boeing convince you otherwise!"
         b747 "If you want a safer sport, come engineer or fly for Airbus. If you want nosedives and firey crashes, go with Boeing. They're good at that here lately."
+        jump d1_challenge_747
 
-        menu:
-            "You can feel your blood beginning to boil..."
-            "We'll show you, you bloated gas-guzzler!":
-                $ confidence += .5
-                if with_777:
-                    hide 747
-                    #show 777_shocked
-                    b777 "..."
-                    m "I'm not going to let her say those things about my father!"
+label d1_challenge_747:
+    menu:
+        "You can feel your blood beginning to boil..."
+        "We'll show you, you bloated gas-guzzler!":
+            $ confidence += .5
+            if with_777:
+                hide 747
+                #show 777_shocked
+                show 777
+                b777 "..."
+                m "I'm not going to let her say those things about my father!"
+                if father_is_airbus:
+                    b777 "...Airbus-sensei is your father?"
+                else:
                     b777 "...Boeing-sensei is your father?"
-                    m "That's right. And I'm not going to let some bitch talk like that!"
-                    b777 "...you're not wrong..."
-                    m "Thanks for your support Triple Seven."
-                    $ affinity_777 +=.25
-            "...":
-                $ confidence -= .5
-                if with_777:
-                    hide 747
-                    #show 777_angry
-                    b777 "...she sure has a way of really riling up the students..."
-                    #hide 777_angry
+                m "That's right. And I'm not going to let some bitch talk like that!"
+                b777 "...you're not wrong..."
+                m "Thanks for your support Triple Seven."
+                $ affinity_777 +=.25
+                hide 777
+        "...":
+            $ confidence -= .5
+            if with_777:
+                b777 "...she sure has a way of really riling up the students..."
+                hide 777
+    show 747
     b747 "This concludes our ceremony. Please make your way back to your homerooms. Transfer students: you will be making your team selection upon arrival, so please be prepared with your decision. "
     b747 "I'm sure you'll make the right one."
     b747 "If you don't...well then that sucks for you."
     hide 747
+    scene black with dissolve
 
 label afterCeremony:
-    if sat_with_777:
-        b777 ""
+    scene outside_gym
+    if with_777:
+        show 777
+        b777 "..."
+        m "H...hey, since I'm new here can you help show me to my classroom? I'm in class...um 2-D."
+        b777 "Oh! Of course! All second years are on the second floor of the main school building."
+        "Triple Seven thinks for a bit..."
+        b777 "L...let me show you where that building is..."
+        "You walk with 777 to the school building."
+        scene inside_school
+
+        b777 "You just take these stairs to the second floor...I'm in class 3-A...if you want to...h-hang out again..."
+        $ affinity_777 += .5
+        m "Of course I do. I need to get to class now. I'll definitely see you around, Triple Seven."
+        hide 777
+        show 777_blush
+        "She blushes, but you can see a small smile across her face, as she nods and hurries off to her classroom."
+        hide 777_blush with moveoutleft
     elif father_is_airbus:
         show a330
         "You see your sister, A330, in the crowd. Being the only familiar face you can see you make your way towards her."
         "She spots you. She doesn't look too happy to see you"
         a330 "..."
         a330 "Are you trying to humiliate me? It's hard enough to make friends without you repelling other people away"
-        "Sorry, I figured it would be best to stick together."
+        m "Sorry, I figured it would be best to stick together."
         a330 "Of course you would. Just try not to draw too much attention to yourself."
         a330 "It seems you have chased one person away already, as it is. I probably can't talk to that 777 girl anymore thanks to you."
         "..."
         a330 "Just get to your class already"
     else:
-        "You see your sister, 757, in the crowd. Being the only familiar face you can see you make your way towards her."
+        "You see your sister, 757, in the crowd. Being the only familiar face you can see, you make your way towards her."
         show 757
         "She gives you a friendly wave"
         757 "Wasn't that a great speech by dad? Oh! How are you liking school so far?"
-        "Well, I-"
+        m "Well, I-"
         "Before you can even get a word out, your sister's attention is stolen by another group of girls"
         757 "Oh! Gotta go! Byyyeee! Let's talk more later!"
         hide 757
@@ -567,7 +573,7 @@ label d1_classroom_morning:
     "You finally find your classroom. The desks are still for the most part empty."
     "There are desks over by the window."
     "Perhaps you would get a good view of the training port from there?"
-    
+
     v "DEVNOTE: You sit in the row closest to the window, second from the back obviously. A340-sensei is introduced and wow she's a whore. Like she seriously needs to just get laid, but you're not the one to do that!"
     v "DEVNOTE: This is where you make your team choice. "
     v "DEVNOTE: You'll be introduced as a transfer student with A350. You learn about what she likes. "
