@@ -61,7 +61,8 @@ define dex = 0
 #WIS is a special stat that will help you make the right decision for girls that you have over 5 affinity with.
 define wis = 0
 
-define sat_with_777 = False
+#flags go here
+define with_777 = False
 
 define prealpha = False
 
@@ -429,6 +430,7 @@ label oc_777_sitwith:
     jump openingCeremony
 
 label oc_777_bye:
+    $ with_777 = False
     #show 777_disappointed
     "777 makes it obvious that she wanted to sit with you..."
     b777 "O-okay...I'll go find my friends..."
@@ -578,12 +580,12 @@ label d1_classroom_morning:
     "Normally, kids in your old school would try to sit in the back to avoid the teacher's attention."
     "Perhaps, that's the difference between an average and a prestigious school."
     "The students hush up as the sensei walks in"
-    show A340
-    A340 "Hello students!~ Welcome back to DC Circuitry 101"
-    A340 "Today, we'll be learning a bit about Ohms law. I'll be drafting some schematics here on the board and we'll work..."
+    show a340
+    a340 "Hello students!~ Welcome back to DC Circuitry 101"
+    a340 "Today, we'll be learning a bit about Ohms law. I'll be drafting some schematics here on the board and we'll work..."
     # If there is a face where it can be derived that she might be having ulterior thoughts, it ought to be here.
-    A340 "together... on calculating the current"
-    A340 "Before we get to that, of course, we'll need to introduce our new transfer students. Anon and ~~~~"
+    a340 "together... on calculating the current"
+    a340 "Before we get to that, of course, we'll need to introduce our new transfer students. Anon and ~~~~"
     v "DEVNOTE: You sit in the row closest to the window, second from the back obviously. A340-sensei is introduced and wow she's a whore. Like she seriously needs to just get laid, but you're not the one to do that!"
     v "DEVNOTE: This is where you make your team choice. "
     v "DEVNOTE: You'll be introduced as a transfer student with A350. You learn about what she likes. "
