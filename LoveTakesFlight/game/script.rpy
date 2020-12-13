@@ -1,8 +1,10 @@
 ﻿# The script of the game goes in this file.
 
+# disable the back button, cause you have to save scum
+define config.rollback_enabled = False
+
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
-
 
 #define some administrative characters
 define v = Character("lastation4")
@@ -63,8 +65,9 @@ define wis = 0
 
 #flags go here
 define with_777 = False
-
 define prealpha = False
+define selected_boeing = False
+define selected_airbus = False
 
 # The game starts here.
 
@@ -563,10 +566,10 @@ label afterCeremony:
         "You see your sister, 757, in the crowd. Being the only familiar face you can see, you make your way towards her."
         show 757
         "She gives you a friendly wave"
-        757 "Wasn't that a great speech by dad? Oh! How are you liking school so far?"
+        b757 "Wasn't that a great speech by dad? Oh! How are you liking school so far?"
         m "Well, I-"
         "Before you can even get a word out, your sister's attention is stolen by another group of girls"
-        757 "Oh! Gotta go! Byyyeee! Let's talk more later!"
+        b757 "Oh! Gotta go! Byyyeee! Let's talk more later!"
         hide 757
         "You find yourself standing alone in the crowded hallway"
     v "DEVNOTE: Depending on your affinity with 777 you either walk to class with her or your sister. A330 is not too happy about having to be seen with you."
@@ -574,20 +577,49 @@ label afterCeremony:
 label d1_classroom_morning:
     "You finally find your classroom. The desks are still for the most part empty."
     "There are desks over by the window. You take the one that is second to back."
-    "Perhaps you would get a good view of the training port from there? Perhaps you might see one of the hikokiko in flight"
+    "Perhaps you would get a good view of the training port from there? You might even see one of the hikokiko in flight..."
     "The other students trickle in one by one. You notice that the boys in class all crowd towards the front seats."
     "Strange."
     "Normally, kids in your old school would try to sit in the back to avoid the teacher's attention."
     "Perhaps, that's the difference between an average and a prestigious school."
-    "The students hush up as the sensei walks in"
+    "The students quiet down as the sensei walks in..."
     show a340
     a340 "Hello students!~ Welcome back to DC Circuitry 101"
     a340 "Today, we'll be learning a bit about Ohms law. I'll be drafting some schematics here on the board and we'll work..."
     # If there is a face where it can be derived that she might be having ulterior thoughts, it ought to be here.
     a340 "together... on calculating the current"
-    a340 "Before we get to that, of course, we'll need to introduce our new transfer students. Anon and ~~~~"
-    v "DEVNOTE: You sit in the row closest to the window, second from the back obviously. A340-sensei is introduced and wow she's a whore. Like she seriously needs to just get laid, but you're not the one to do that!"
-    v "DEVNOTE: This is where you make your team choice. "
+    a340 "I'll also be your homeroom teacher, so we'll be seeing A LOT of each other. "
+    "She gives an over-exaggerated wink."
+    a340 "Before we get to that, of course, we'll need to introduce our new transfer students. Please stand up if you transferred this year."
+    "Guess I should stand up..."
+    "You stand, and notice another girl stand as well."
+    a340 "Okay, okay, please introduce yourselves and, more importantly, pick your team."
+    a340 "I'm not biased, but if you want to see more of dear ol' A340, then pick Airbus <3!"
+    "She makes a heart motion with her hands like you'd expect from one of the girls, not a teacher..."
+
+    "..."
+    # the most important decision of the game
+label the_selection:
+    menu:
+        "...which team will I select?"
+        "Boeing":
+            menu:
+                "Did you want to select Boeing?"
+                "Yes":
+                    $ selected_boeing = True
+                    $ selected_airbus = False
+                "No":
+                    jump the_selection
+
+        "Airbus":
+            menu:
+                "Did you want to select Airbus?"
+                "Yes":
+                    $ selected_boeing = False
+                    $ selected_airbus = True
+                "No":
+                    jump the_selection
+
     v "DEVNOTE: You'll be introduced as a transfer student with A350. You learn about what she likes. "
     v "DEVNOTE: Your seat neighbor will be A320 or 737 depending on your team choice. "
     v "DEVNOTE: If you pick Boeing, 737 will drop her pencil during class notes time and you'll get it for her, sparking a small conversation where you can gain 1 affinity if done right. Not like she wants you to help her or anything...b-baka..."
