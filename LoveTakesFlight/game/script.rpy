@@ -627,8 +627,8 @@ label the_selection:
 
 label d1_lunchtime:
     v "DEVNOTE: You spend lunchtime alone on day 1, and depending on affinity, may notice that 737 does not have a lunch. Since she was so abrasive earlier, you don't question her motives, but make a mental note of it. "
-    v "DEVNOTE: 737 is actually quite poor and sometimes cannot afford a lunch, due to restrictions that have left her family quite broke. (737 MAX fiasco)"
-
+    v "DEVNOTE: 737 is actually quite poor and sometimes cannot afford a lunch, due to restrictions that have left her family quite broke. (737 MAX fiasco) [august edit: maybe if affinity is high enough shell talk briefly about it; only to then
+    shut down; or not want to talk about it any more. It could be timed out nicely with lunch bell ringing, and her quickly saying 'i have to go.. sorry...' if you develope more with 737 later on, you can get all of this story at a later date?]"
 label d1_classrom_afternoon:
     v "DEVNOTE: You have a pop quiz on Flight Dynamics and are called to answer a question a la Persona style. Gain .25 affinity if you get the question right, lose .5 affinity if you get it wrong..."
 
@@ -651,7 +651,7 @@ label d1_study:
             jump d1_arcade
         "We should play Land of Last Fantasy III!":
             jump d1_mmo
-        "I should be getting some sleep...":
+        "I should be getting some sleep..." "I should be getting some sleep...[august edit: 'its getting late.. and i should really be getting some sleep. school was a lot today":
             jump d1_morgana
 
 label d1_arcade:
