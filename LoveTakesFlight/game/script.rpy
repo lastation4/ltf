@@ -651,7 +651,7 @@ label d1_study:
             jump d1_arcade
         "We should play Land of Last Fantasy III!":
             jump d1_mmo
-        "I should be getting some sleep..." "I should be getting some sleep...[august edit: 'its getting late.. and i should really be getting some sleep. school was a lot today":
+        "I should be getting some sleep...its getting late. School was a lot today.":
             jump d1_morgana
 
 label d1_arcade:

@@ -3,5 +3,5 @@
 *.rpyb
 *.json
 persistent
+*.rpymc
 *.txt
-
