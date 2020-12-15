@@ -213,6 +213,7 @@ label driveToSchool:
         m "You're right, that's probably a good idea. Wouldn't want to make dad mad by picking Boeing..."
         "You laugh dryly to yourself, and try to change the subject."
         m "Yeah imagine if I picked Boeing, what would you do Dad?"
+        show a330 at left
     else:
         #show 757_phone_talk
         b757 "Obviously Boeing! You don't want to upset Dad after all the hard work he put in landing this job!"
@@ -220,7 +221,8 @@ label driveToSchool:
         #show 757_phone_laugh
         "You and 757 both laugh."
         m "Yeah imagine if I picked Airbus, what would you do Dad?"
-    show father
+        show 757 at left
+    show father at right
     father "I'd disown you."
     m "What...?"
     if father_is_airbus:
@@ -584,7 +586,7 @@ label d1_classroom_morning:
     "Perhaps, that's the difference between an average and a prestigious school."
     "The students quiet down as the sensei walks in..."
     show a340
-    a340 "Hello students!~ Welcome back to DC Circuitry 101"
+    a340 "Hello students!~ Welcome to DC Circuitry 101"
     a340 "Today, we'll be learning a bit about Ohms law. I'll be drafting some schematics here on the board and we'll work..."
     # If there is a face where it can be derived that she might be having ulterior thoughts, it ought to be here.
     a340 "together... on calculating the current"
@@ -619,6 +621,24 @@ label the_selection:
                     $ selected_airbus = True
                 "No":
                     jump the_selection
+
+    if selected_boeing:
+        a340 "Boening, is it? Such a shame, but I suppose we have chase our own ambitions."
+    else:
+        a340 "Another one for Airbus, is it? How exciting!"
+    a340 "Well, why don't you both tell us a little bit more about yourselves?"
+
+    show a340 at right
+    show a350 at left
+    a350 "Hullo. I'm A350, but some of my friends call me Trash Panda."
+    a350 "I, um, like anime, manga, anime music and I like to collect figurines."
+    a350 "..."
+    a350 "From anime."
+    a350 "... That's all"
+    hide a350
+    show a340 at center
+    a340 "...Rivoting."
+    a340 "Alright, How about you tell us a little bit about yourself?"
 
     v "DEVNOTE: You'll be introduced as a transfer student with A350. You learn about what she likes. "
     v "DEVNOTE: Your seat neighbor will be A320 or 737 depending on your team choice. "
