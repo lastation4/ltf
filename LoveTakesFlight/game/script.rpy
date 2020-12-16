@@ -1,7 +1,7 @@
 ﻿# The script of the game goes in this file.
 
 # disable the back button, cause you have to save scum
-define config.rollback_enabled = False
+define config.rollback_enabled = True
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -543,7 +543,6 @@ label afterCeremony:
         b777 "L...let me show you where that building is..."
         "You walk with 777 to the school building."
         scene inside_school
-
         b777 "You just take these stairs to the second floor...I'm in class 3-A...if you want to...h-hang out again..."
         $ affinity_777 += .5
         m "Of course I do. I need to get to class now. I'll definitely see you around, Triple Seven."
@@ -554,27 +553,33 @@ label afterCeremony:
     elif father_is_airbus:
         show a330
         "You see your sister, A330, in the crowd. Being the only familiar face you can see you make your way towards her."
-        "She spots you. She doesn't look too happy to see you"
+        "She spots you. She doesn't look too happy to see you..."
         a330 "..."
-        a330 "Are you trying to humiliate me? It's hard enough to make friends without you repelling other people away"
+        a330 "Are you trying to humiliate me? It's hard enough to make friends without you repelling other people away."
         m "Sorry, I figured it would be best to stick together."
         a330 "Of course you would. Just try not to draw too much attention to yourself."
         a330 "It seems you have chased one person away already, as it is. I probably can't talk to that 777 girl anymore thanks to you."
         "..."
-        a330 "Just get to your class already"
+        a330 "Just get to your class already..."
+        "She practically runs away from you."
+        hide a330 with moveoutleft
+        "You find your way to the classroom building, by following the crowd."
+
     else:
         "You see your sister, 757, in the crowd. Being the only familiar face you can see, you make your way towards her."
         show 757
-        "She gives you a friendly wave"
+        "She gives you a friendly wave,"
         b757 "Wasn't that a great speech by dad? Oh! How are you liking school so far?"
         m "Well, I-"
         "Before you can even get a word out, your sister's attention is stolen by another group of girls"
         b757 "Oh! Gotta go! Byyyeee! Let's talk more later!"
-        hide 757
-        "You find yourself standing alone in the crowded hallway"
-    v "DEVNOTE: Depending on your affinity with 777 you either walk to class with her or your sister. A330 is not too happy about having to be seen with you."
+        hide 757 with moveoutright
+        "She darts off, to join her new friends."
+        "..."
+        "You find your way to the classroom building, by following the crowd."
 
 label d1_classroom_morning:
+    scene outside_classroom
     "You finally find your classroom. The desks are still for the most part empty."
     "There are desks over by the window. You take the one that is second to back."
     "Perhaps you would get a good view of the training port from there? You might even see one of the hikokiko in flight..."
@@ -621,6 +626,19 @@ label the_selection:
                     jump the_selection
 
     v "DEVNOTE: You'll be introduced as a transfer student with A350. You learn about what she likes. "
+    if selected_airbus and father_is_airbus:
+        "You decide to go with your family team, Airbus."
+    elif selected_airbus and not father_is_airbus:
+        "You've decided to go with the technologically advanced Airbus over your family team of Boeing. Wonder what Dad'll think of that..."
+    elif selected_boeing and not father_is_airbus:
+        "You decide to go with your family team, Boeing. "
+    elif selected_boeing and father_is_airbus:
+        "You've decided to go with the tenacious Boeing over your family team of Airbus. Wonder what Dad'll think of that..."
+    else:
+        v "How the fuck did you get here?"
+        v "he does not foksmash my code"
+        $ renpy.quit()
+
     v "DEVNOTE: Your seat neighbor will be A320 or 737 depending on your team choice. "
     v "DEVNOTE: If you pick Boeing, 737 will drop her pencil during class notes time and you'll get it for her, sparking a small conversation where you can gain 1 affinity if done right. Not like she wants you to help her or anything...b-baka..."
     v "DEVNOTE: If you pick Airbus, A320 will end up helping you with your math classwork, as you end up getting confused. You can gain 1 affinity with her depending on your answer to the quiz question, after she helps you. "
