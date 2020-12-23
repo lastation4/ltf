@@ -627,10 +627,23 @@ label the_selection:
                 "No":
                     jump the_selection
 
+    if selected_airbus and father_is_airbus:
+        "You decide to go with your family team, Airbus."
+    elif selected_airbus and not father_is_airbus:
+        "You've decided to go with the technologically advanced Airbus over your family team of Boeing. Wonder what Dad'll think of that..."
+    elif selected_boeing and not father_is_airbus:
+        "You decide to go with your family team, Boeing. "
+    elif selected_boeing and father_is_airbus:
+        "You've decided to go with the tenacious Boeing over your family team of Airbus. Wonder what Dad'll think of that..."
+    else:
+        v "How the fuck did you get here?"
+        v "he does not foksmash my code"
+        $ renpy.quit()
     if selected_boeing:
-        a340 "Boening, is it? Such a shame, but I suppose we have chase our own ambitions."
+        a340 "Boeing, is it? Such a shame, but I suppose we have chase our own ambitions."
     else:
         a340 "Another one for Airbus, is it? How exciting!"
+
     a340 "Well, why don't you both tell us a little bit more about yourselves?"
 
     show a340 at right
@@ -645,19 +658,18 @@ label the_selection:
     a340 "...Rivoting."
     a340 "Alright, How about you tell us a little bit about yourself?"
 
-    v "DEVNOTE: You'll be introduced as a transfer student with A350. You learn about what she likes. "
-    if selected_airbus and father_is_airbus:
-        "You decide to go with your family team, Airbus."
-    elif selected_airbus and not father_is_airbus:
-        "You've decided to go with the technologically advanced Airbus over your family team of Boeing. Wonder what Dad'll think of that..."
-    elif selected_boeing and not father_is_airbus:
-        "You decide to go with your family team, Boeing. "
-    elif selected_boeing and father_is_airbus:
-        "You've decided to go with the tenacious Boeing over your family team of Airbus. Wonder what Dad'll think of that..."
-    else:
-        v "How the fuck did you get here?"
-        v "he does not foksmash my code"
-        $ renpy.quit()
+    "..."
+
+    if father_is_airbus:
+        m "Well my father is the chair of the Airbus team..."
+    else
+        m "Well my father is the chair of the Boeing team..."
+
+    m "I like anime and manga as well, so I guess we share something in common A350. I hope we get along."
+
+    a350 "!!!"
+
+    a350 "Cool. Another degenerate like me!"
 
     v "DEVNOTE: Your seat neighbor will be A320 or 737 depending on your team choice. "
     v "DEVNOTE: If you pick Boeing, 737 will drop her pencil during class notes time and you'll get it for her, sparking a small conversation where you can gain 1 affinity if done right. Not like she wants you to help her or anything...b-baka..."
