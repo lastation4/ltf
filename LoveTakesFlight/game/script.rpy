@@ -662,17 +662,93 @@ label the_selection:
 
     if father_is_airbus:
         m "Well my father is the chair of the Airbus team..."
-    else
+    else:
         m "Well my father is the chair of the Boeing team..."
 
     m "I like anime and manga as well, so I guess we share something in common A350. I hope we get along."
+
+    show a350 at left
 
     a350 "!!!"
 
     a350 "Cool. Another degenerate like me!"
 
-    v "DEVNOTE: Your seat neighbor will be A320 or 737 depending on your team choice. "
-    v "DEVNOTE: If you pick Boeing, 737 will drop her pencil during class notes time and you'll get it for her, sparking a small conversation where you can gain 1 affinity if done right. Not like she wants you to help her or anything...b-baka..."
+    a340 "Take your seats everyone."
+
+    hide a340
+    hide a350
+
+    "We take our seats and A340-sensei begans teaching the class about currents."
+
+    "She does a few demonstrations on the board and then gives us all a problem to work on"
+
+
+    if selected_airbus:
+        "You hear the clicking of a fallen pencil. You look down to your right and see it. Instinctively, you lean over to pick it up."
+        nameunknown "Hey!"
+        "You look up and see the angry face of the girl sitting next to you"
+
+        show 737 center
+
+        nameunknown "That's mine!"
+
+        menu:
+            "I'm sorry. I was just trying to pick it up for you":
+                nameunknown "Ah!"
+                nameunknown "Well, I didn't ask you to!"
+                nameunknown "B-but thanks, anyways, I guess"
+                $ affinity_737 += 1
+            "Mine now.":
+                nameunknown "Ex-CUSE me?"
+                nameunknown "Where do you get off stealing other people's property?"
+                m "I'm just kidding! Why would anyone want to steal a pencil? Here you go."
+                nameunknown "R-right. Of course, that would be silly."
+            "...":
+                nameunknown "What, do I got something on my face? Give that back already!"
+                "She snatches the pencil from your hand"
+                nameunknown "The nerve of some people!"
+                $ affinity_737 -= .25
+                hide 737
+        "You proceed with your assignment with the awkward silence between the two of you."
+        "You sorta want to try to strike up conversation... It would suck for class to be tense like this everyday"
+        me "So, my name is ~~~... What is yours?"
+        show 737 at right
+        "The girl looks up from her desk, seemingly unsure if you were speaking with her"
+        nameunknown "I am 737, I suppose. What's it to you?"
+        me "Not anything. I just figured that, since we are sitting near each other, it's worth at least knowing each others names."
+        "She goes back to looking at her assignment."
+        737 "I guess that's true. But, that doesn't mean we are friends or anything!"
+        "... That's an odd thing to clarify, but I'll take it."
+        hide 737
+
+    else:
+        m "I..."
+        m "... do not get this!"
+        "In spite of the fact she had just demonstrated all of this, your attempts to replicate what was on the board falls short of getting you an answer."
+        "You look up to see if you could get some help... It seems that A340-sensei is currently occupied with helping some of the students in the front"
+        "You feel better seeing that a lot of them were not getting it either. But, you don't want to fall behind any of them!"
+        "You try to raise your hand up to try to get her attention"
+        nameunknown "You having trouble?"
+        show a320
+        nameunknown "It's not all that hard. I can help you if you are struggling"
+        m "A320?"
+        #a320 smiles
+        a320 "...Took you long enough to recognize me."
+        m "I'm sorry, I was just really focused on class."
+        "a320 looks towards the sensei as she helps someone with their coursework."
+        a320 "...Sure you were."
+        m "Your offer to help still stands, right?"
+        a320 "I don't know, you've completely forgotten about me, in spite of us being friends since grade school."
+        a320 "... but, I guess I'll be nice this time."
+
+        #Oh, we might actually need practice problems for ohms law.
+        #This is basic math; We could probably have the protag be cofused about symbols and a320 break it down to the mathmatical stuff
+
+
+    "Class goes on without any further incident."
+    "The rest of the day, the students spend doing practice problems with sensei periodically helping the ones struggling."
+    #v "DEVNOTE: Your seat neighbor will be A320 or 737 depending on your team choice. "
+    #v "DEVNOTE: If you pick Boeing, 737 will drop her pencil during class notes time and you'll get it for her, sparking a small conversation where you can gain 1 affinity if done right. Not like she wants you to help her or anything...b-baka..."
     v "DEVNOTE: If you pick Airbus, A320 will end up helping you with your math classwork, as you end up getting confused. You can gain 1 affinity with her depending on your answer to the quiz question, after she helps you. "
 
 label d1_lunchtime:
