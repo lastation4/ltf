@@ -582,12 +582,12 @@ label afterCeremony:
 
 label d1_classroom_morning:
     scene outside_classroom
-    "You finally find your classroom. The desks are still for the most part empty."
-    "There are desks over by the window. You take the one that is second to back."
-    "Perhaps you would get a good view of the training port from there? You might even see one of the hikokiko in flight..."
-    "The other students trickle in one by one. You notice that the boys in class all crowd towards the front seats."
+    "I finally find my classroom. The desks are still for the most part empty."
+    "There are desks over by the window. I decide to take the one that is second to back."
+    "Maybe I can get a good view of the training port from here? I might even see one of the hikokiko in flight..."
+    "The other students trickle in one by one. The boys in class all crowd towards the front seats."
     "Strange."
-    "Normally, kids in your old school would try to sit in the back to avoid the teacher's attention."
+    "Back in my old school, students would try to sit in the back to avoid the teacher's attention."
     "Perhaps, that's the difference between an average and a prestigious school."
     "The students quiet down as the sensei walks in..."
     show a340
@@ -599,7 +599,7 @@ label d1_classroom_morning:
     "She gives an over-exaggerated wink."
     a340 "Before we get to that, of course, we'll need to introduce our new transfer students. Please stand up if you transferred this year."
     "Guess I should stand up..."
-    "You stand, and notice another girl stand as well."
+    "Both another girl and I stand up"
     a340 "Okay, okay, please introduce yourselves and, more importantly, pick your team."
     a340 "I'm not biased, but if you want to see more of dear ol' A340, then pick Airbus <3!"
     "She makes a heart motion with her hands like you'd expect from one of the girls, not a teacher..."
@@ -628,13 +628,13 @@ label the_selection:
                     jump the_selection
 
     if selected_airbus and father_is_airbus:
-        "You decide to go with your family team, Airbus."
+        "I decide to go with my family team, Airbus."
     elif selected_airbus and not father_is_airbus:
-        "You've decided to go with the technologically advanced Airbus over your family team of Boeing. Wonder what Dad'll think of that..."
+        "I've decided to go with the technologically advanced Airbus over my family team of Boeing. Wonder what Dad'll think of that..."
     elif selected_boeing and not father_is_airbus:
-        "You decide to go with your family team, Boeing. "
+        "I decide to go with my family team, Boeing. "
     elif selected_boeing and father_is_airbus:
-        "You've decided to go with the tenacious Boeing over your family team of Airbus. Wonder what Dad'll think of that..."
+        "I've decided to go with the tenacious Boeing over my family team of Airbus. Wonder what Dad'll think of that..."
     else:
         v "How the fuck did you get here?"
         v "he does not foksmash my code"
@@ -701,7 +701,7 @@ label the_selection:
             "Mine now.":
                 nameunknown "Ex-CUSE me?"
                 nameunknown "Where do you get off stealing other people's property?"
-                m "I'm just kidding! Why would anyone want to steal a pencil? Here you go."
+                m "I'm just kidding! Why would anyone want to steal a pencil? They're like fifty cents! Here you go."
                 nameunknown "R-right. Of course, that would be silly."
             "...":
                 nameunknown "What, do I got something on my face? Give that back already!"
@@ -709,11 +709,11 @@ label the_selection:
                 nameunknown "The nerve of some people!"
                 $ affinity_737 -= .25
                 hide 737
-        "You proceed with your assignment with the awkward silence between the two of you."
-        "You sorta want to try to strike up conversation... It would suck for class to be tense like this everyday"
+        "We proceed with our assignment with the awkward silence between the two of us."
+        "I sorta want to try to strike up conversation with her... Considering she sits next to me, it would suck for class to be tense like this everyday"
         m "So, my name is ~~~... What is yours?"
         show 737 at right
-        "The girl looks up from her desk, seemingly unsure if you were speaking with her"
+        "The girl looks up from her desk, seemingly unsure if I was speaking with her"
         nameunknown "I am 737, I suppose. What's it to you?"
         m "Not anything. I just figured that, since we are sitting near each other, it's worth at least knowing each others names."
         "She goes back to looking at her assignment."
@@ -724,16 +724,17 @@ label the_selection:
     else:
         m "I..."
         m "... do not get this!"
-        "In spite of the fact she had just demonstrated all of this, your attempts to replicate what was on the board falls short of getting you an answer."
-        "You look up to see if you could get some help... It seems that A340-sensei is currently occupied with helping some of the students in the front"
-        "You feel better seeing that a lot of them were not getting it either. But, you don't want to fall behind any of them!"
-        "You try to raise your hand up to try to get her attention"
+        "In spite of the fact she had just demonstrated all of this, my attempts to replicate what was on the board falls short of getting an answer."
+        "I look up to see if I could get some help... It seems that A340-sensei is currently occupied with helping some of the students in the front"
+        "It makes me feel better seeing that a lot of them were not getting it either. But, I don't want to fall behind any of them!"
+        "I try to raise my hand up to try to get her attention"
         nameunknown "You having trouble?"
         show a320
         nameunknown "It's not all that hard. I can help you if you are struggling"
+        "Wait a minute..."
         m "A320?"
         #a320 smiles
-        a320 "...Took you long enough to recognize me."
+        a320 "...Took you long enough to notice me."
         m "I'm sorry, I was just really focused on class."
         "a320 looks towards the sensei as she helps someone with their coursework."
         a320 "...Sure you were."
@@ -742,26 +743,101 @@ label the_selection:
         a320 "... but, I guess I'll be nice this time."
 
         #Oh, we might actually need practice problems for ohms law.
-        #This is basic math; We could probably have the protag be cofused about symbols and a320 break it down to the mathmatical stuff
+        #This is basic math; We could probably have the protag be cofused about where things fall in the equation and a320 break it down to the mathmatical stuff
 
+        m "Thanks, A320! I think I understand now"
+        #Smug look for a320?
+        a320 "You'd better! I'm not just here to look pretty, now!"
 
-    "Class goes on without any further incident."
+    "Class goes on without any further events."
     "The rest of the day, the students spend doing practice problems with sensei periodically helping the ones struggling."
+
+    if selected_boeing:
+        jump d1_classroom_afternoon
+
     #v "DEVNOTE: Your seat neighbor will be A320 or 737 depending on your team choice. "
     #v "DEVNOTE: If you pick Boeing, 737 will drop her pencil during class notes time and you'll get it for her, sparking a small conversation where you can gain 1 affinity if done right. Not like she wants you to help her or anything...b-baka..."
     v "DEVNOTE: If you pick Airbus, A320 will end up helping you with your math classwork, as you end up getting confused. You can gain 1 affinity with her depending on your answer to the quiz question, after she helps you. "
 
 label d1_lunchtime:
+    "After class, I find a spot in the cafeteria."
+    "Everyone else is clustered among their own friends. Naturally, being the fresh transfer student leaves me to eat alone."
+    "I see 737 sitting by herself."
+    "She isn't eating."
+    "Did she forget her food? It's entirely possible she's the sort to not bother with lunch."
+    "I start eating my food."
+    "She seems to be staring at other people's trays."
     v "DEVNOTE: You spend lunchtime alone on day 1, and depending on affinity, may notice that 737 does not have a lunch. Since she was so abrasive earlier, you don't question her motives, but make a mental note of it. "
     v "DEVNOTE: 737 is actually quite poor and sometimes cannot afford a lunch, due to restrictions that have left her family quite broke. (737 MAX fiasco) [august edit: maybe if affinity is high enough shell talk briefly about it; only to then
     shut down; or not want to talk about it any more. It could be timed out nicely with lunch bell ringing, and her quickly saying 'i have to go.. sorry...' if you develope more with 737 later on, you can get all of this story at a later date?]"
-label d1_classrom_afternoon:
+label d1_classroom_afternoon:
     v "DEVNOTE: You have a pop quiz on Flight Dynamics and are called to answer a question a la Persona style. Gain .25 affinity if you get the question right, lose .5 affinity if you get it wrong..."
 
 label d1_classroom_afterschool:
+    if affinity_777 >= 1:
+        "As I walk out of class, I see 777 far ahead of me in the hallway."
+        "I rush past other students to try to catch up with her"
+        m "Triple Seven! Triple Seven!"
+        show 777 at center
+        777 "H-huh? Who is..."
+        777 "!"
+        m "It's me, ~~~!"
+        777 "Ah, I remember you from this morning! How was your first day?"
+        m "It was great!"
+        "It was, at best, okay. But, upon seeing 777 again, I felt like it was different at that moment"
+        777 "T-that's great!"
+
+        if selected_boeing:
+            m "I picked Boeing... The same team as you!"
+            777 "!"
+            777 "That's exciting!"
+            affinity_777 += 1
+        else:
+            m "I'm part of Airbus!"
+            777 "R-really! That's great!"
+        777 "Are you going to become a hikokiko or an engineer?"
+        m "I'm going to be an engineer! I, ah, don't quite qualify to fly myself."
+        777 "So, I won't be seeing you in the air..."
+
+        if selected_boeing:
+            777 "But, we might be working together later! What's a Hikokiko without her engineer?"
+        else:
+            777 "Still, we can be friends, even if we are on opposing teams"
+
+        m "That's true! Well, I'm sure my sister is waiting on me, I best be going. I hope to see you tomorrow!"
+        "Triple Seven almost seems to blush at my hopes to see her again. She gives a timid wave."
+
+    else:
+        jump d1_walkhome
     v "DEVNOTE: You catch up with 777 on her way out of the school building (if your affinity is 1) and tell her about what team you chose. +1 affinity if you chose Boeing. +0 if you chose Airbus. You say goodbye to 777 and wish her a good night."
 
 label d1_walkhome:
+    if father_is_boeing:
+        "I find my sister outside of the school talking with her friends."
+        "A320 stands among them. They both wave goodbye to their friends and we head off towards home"
+        show 757 at right
+        show a320 at left
+        757 "So, what did you end up picking?"
+
+        if selected_boeing:
+            m "I picked Boeing! Just like you and dad!"
+            757 "Yippe! I can't wait to tell him!"
+            757 "I was a little worried you were going to pick airbus."
+            757 "I know he said he would respect you regardless of your decision, but I feel like it would've made him a little sad, you know?"
+            a320 "Ha, could you imagine the chairman's kid being in a completely different team?"
+            757 "So scandalous~"
+            affinity_757 += 1
+        else:
+            a320 "Airbus is what they picked!"
+            757 "Woah, really!?"
+            a320 "Yep! Announced it in front of the whole class!"
+            757 "Wowzers! I didn't actually think you would go for them."
+            757 "I know dad will support your decision, regardless of the jokes he makes!"
+            a320 "I'd imagine your dad would get some heat from his colleges for your decision, though!"
+            757 "Do you think so?"
+            a320 "Oh, I'm sure it'll be fine."
+            a320 "It's your life, I wouldn't worry too much about that stuff"
+
     v "DEVNOTE: You walk home with your sister (if Boeing) and your childhood friend A320. You make smalltalk about the day, and +1 affinity with A320 if you picked Airbus team. +1 with sister if you picked Boeing. No minuses. "
     v "DEVNOTE: A320 teases you about if there are any hot girls in your class. Random event here to see if you have the confidence to call her hot to her face. Very low chance, but +1 affinity with A320 if you pull it off."
     v "DEVNOTE: If you fail, you mention 777, and she teases you about being into older women (and you lose .25 affinity with A320). It's not like that...yet. "
