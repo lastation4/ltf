@@ -711,11 +711,11 @@ label the_selection:
                 hide 737
         "You proceed with your assignment with the awkward silence between the two of you."
         "You sorta want to try to strike up conversation... It would suck for class to be tense like this everyday"
-        me "So, my name is ~~~... What is yours?"
+        m "So, my name is ~~~... What is yours?"
         show 737 at right
         "The girl looks up from her desk, seemingly unsure if you were speaking with her"
         nameunknown "I am 737, I suppose. What's it to you?"
-        me "Not anything. I just figured that, since we are sitting near each other, it's worth at least knowing each others names."
+        m "Not anything. I just figured that, since we are sitting near each other, it's worth at least knowing each others names."
         "She goes back to looking at her assignment."
         737 "I guess that's true. But, that doesn't mean we are friends or anything!"
         "... That's an odd thing to clarify, but I'll take it."
