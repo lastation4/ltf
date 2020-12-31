@@ -745,28 +745,67 @@ label the_selection:
         #Oh, we might actually need practice problems for ohms law.
         #This is basic math; We could probably have the protag be cofused about where things fall in the equation and a320 break it down to the mathmatical stuff
 
+        "..."
+
+        a320 "So it's pretty simple, draw a triangle with a \"T\" inside of it. Write V in the top slot, I in the left slot, and R in the right slot."
+        m "I think I understand, let's see..."
+
+        "You do what A320 suggests..."
+
+        a320 "So if you have V, the formula is I*R. If you have I, the formula is V/R, and finally...."
+        "A320 looks at you expectantally..."
+
+        menu:
+            "A320 looks at you expectantally..."
+            "If I've got R, I/V?":
+                a320 "Nope, division is not communicative. You've got it backwards. It's V/I."
+                $ affinity_a320 -= .25
+                $ intel -= .25
+            "If I've got R, V*I?":
+                a320 "Nope, you only multiply I and R since they are next to each other in the triangle. It's V/I."
+                $ affinity_a320 -= .25
+                $ intel -= .25
+            "If I've got R, V/I?":
+                a320 "See, you're getting the hang of it now."
+                $ affinity_a320 += .25
+                $ intel += .25
         m "Thanks, A320! I think I understand now"
         #Smug look for a320?
         a320 "You'd better! I'm not just here to look pretty, now!"
+
+        if confidence >= 1:
+            m "I mean, you are quite pretty..."
+            # show a320_blush
+            a320 "A...anyway! We need to move on to the next formula!"
+            affinity_a320 += 1
 
     "Class goes on without any further events."
     "The rest of the day, the students spend doing practice problems with sensei periodically helping the ones struggling."
 
     if selected_boeing:
+        jump d1_lunchtime
+    else:
         jump d1_classroom_afternoon
 
-    #v "DEVNOTE: Your seat neighbor will be A320 or 737 depending on your team choice. "
-    #v "DEVNOTE: If you pick Boeing, 737 will drop her pencil during class notes time and you'll get it for her, sparking a small conversation where you can gain 1 affinity if done right. Not like she wants you to help her or anything...b-baka..."
-    v "DEVNOTE: If you pick Airbus, A320 will end up helping you with your math classwork, as you end up getting confused. You can gain 1 affinity with her depending on your answer to the quiz question, after she helps you. "
-
 label d1_lunchtime:
-    "After class, I find a spot in the cafeteria."
-    "Everyone else is clustered among their own friends. Naturally, being the fresh transfer student leaves me to eat alone."
-    "I see 737 sitting by herself."
+    "After class, you find a spot in the cafeteria."
+    "Everyone else is clustered among their own friends. Naturally, being the fresh transfer student leaves you to eat alone."
+    "You see 737 sitting by herself."
     "She isn't eating."
     "Did she forget her food? It's entirely possible she's the sort to not bother with lunch."
-    "I start eating my food."
+    "You start eating your food."
     "She seems to be staring at other people's trays."
+
+    "..."
+
+    "You notice her eyes wander over to you."
+
+    menu:
+        "Go sit with 737.":
+
+        "Eat alone.":
+            "You decide it is better that you don't bother 737 anymore for the day. "
+
     v "DEVNOTE: You spend lunchtime alone on day 1, and depending on affinity, may notice that 737 does not have a lunch. Since she was so abrasive earlier, you don't question her motives, but make a mental note of it. "
     v "DEVNOTE: 737 is actually quite poor and sometimes cannot afford a lunch, due to restrictions that have left her family quite broke. (737 MAX fiasco) [august edit: maybe if affinity is high enough shell talk briefly about it; only to then
     shut down; or not want to talk about it any more. It could be timed out nicely with lunch bell ringing, and her quickly saying 'i have to go.. sorry...' if you develope more with 737 later on, you can get all of this story at a later date?]"
