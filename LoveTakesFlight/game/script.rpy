@@ -777,7 +777,7 @@ label the_selection:
             m "I mean, you are quite pretty..."
             # show a320_blush
             a320 "A...anyway! We need to move on to the next formula!"
-            affinity_a320 += 1
+            $ affinity_a320 += 1
 
     "Class goes on without any further events."
     "The rest of the day, the students spend doing practice problems with sensei periodically helping the ones struggling."
@@ -802,7 +802,7 @@ label d1_lunchtime:
 
     menu:
         "Go sit with 737.":
-
+            "You decide to go sit with 737."
         "Eat alone.":
             "You decide it is better that you don't bother 737 anymore for the day. "
 
@@ -830,7 +830,7 @@ label d1_classroom_afterschool:
             m "I picked Boeing... The same team as you!"
             777 "!"
             777 "That's exciting!"
-            affinity_777 += 1
+            $ affinity_777 += 1
         else:
             m "I'm part of Airbus!"
             777 "R-really! That's great!"
@@ -865,7 +865,7 @@ label d1_walkhome:
             757 "I know he said he would respect you regardless of your decision, but I feel like it would've made him a little sad, you know?"
             a320 "Ha, could you imagine the chairman's kid being in a completely different team?"
             757 "So scandalous~"
-            affinity_757 += 1
+            $ affinity_757 += 1
         else:
             a320 "Airbus is what they picked!"
             757 "Woah, really!?"
