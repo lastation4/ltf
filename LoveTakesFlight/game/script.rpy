@@ -915,7 +915,7 @@ label d1_walkhome:
             a320 "Oh. Did you get her name?"
             m "Triple Seven"
             a320 "Oh! I know her!"
-            a320 "What, you are into older women now?"
+            a320 "What, are you into older women now?"
             m "..."
             a320 "I'm just teasing!"
             $ affinity_320 -= 25
@@ -944,6 +944,8 @@ label d1_study:
     v "DEVNOTE: You decide to study Flight Dynamics with A320. She quizzes you three times, allowing you to build up your brains score, (total of 1 point if you get all right) and gain .25 affinity with A320 for being a responsible student. "
     v "DEVNOTE: You finish studying early and both decide that you can either go to the arcade, or play Land of Last Fantasy III together. "
     v "You can also decline this and go to bed like a limp dick. "
+
+
     menu:
         "What should A320 and I do now that we're done studying?"
         "We should go to the arcade!":
@@ -955,8 +957,28 @@ label d1_study:
 
 label d1_arcade:
     "After I stop by my house to drop my school stuff off, I meet up with A320 at the arcade"
-    a320 ""
-    v "DEVNOTE: You meet up with A320 and both get beaten at a fighting game by a familiar face. A350, the girl that was introduced with you this morning to your class. You three go play a crane game and you win a stuffed cat. You are given a choice of who to give it to."
+    "There are so many games to choose from. As we walk around, A320 latches onto a machine"
+    a320 "Let's do this one!"
+    "We both share a machine and take turns against an opponent on the other side of the machine."
+    "Neither of us win. This guy is really good!"
+    "As A320 gets cornered and has her health chipped away, I peek around the machine to see who our opponent is."
+    show a350
+    "Hey, it's-"
+    "She glances at me for a moment and suddenly her face is struck with recognition and she tears her eyes away from the game."
+    a350 "Oh hey, it's you. I didn't expect to see people from the school here"
+    "A320 notices that her opponent was no longer fighting and peeks over as well"
+    A320 "Do you know her?"
+    m "A320, this is our classmate, Trash Panda"
+    a320 "Right, the other transfer student. Sorry I didn't recognize you from before."
+    a350 "It's okay. I generally try to keep a low profile. Can't have people interrupting my gaming session to talk about the weather."
+    a320 "Speaking of which, shall we all resume our gaming?"
+    "Trash Panda joins us on our outing. We all play the 'Ninja Frogs' game together and do a few songs on 'Dance Heros'"
+    "As we wind down, I use up the last of my tokens on a claw machine."
+    "On my very last token, I get ahold of a stuffed cat toy"
+    "The cat slips."
+    "It narrowly makes out into the drop box"
+    a320 "I can't believe you actually pulled that off!"
+    a350 "Nice. What are you gonna do with it? I like to keep mine in plush piles."
     v "DEVNOTE: +2 affinity with A320 if you give it to her (she loves cats), +1 affinity with A350 if you give it to her. +1 affinity with 757/A330 if you decide to give it to your sister. You also get the option to give it to 777 if your affinity with her is above 1.5 "
     jump gameEnd
 
@@ -970,12 +992,12 @@ label d1_mmo:
     "I'm not doing this quest, but I could go fetch it. It could be a good way to kill time until A320 logs in."
     "I respond:"
     "'SURE. SEND INVITE. WHERE YOU AT?'"
-    "'SAME AREA AS YOU. DIDN'T SEE ME?'"
+    "'SAME AREA AS YOU. DON'T SEE ME?'"
     "Sure enough, they walk over the hill and-"
     "Holy shit! They are fully decked out! This person must either be on the game all day or knows some people!"
     "'... CAN SHARE THE QUEST IF YOU DON'T HAVE IT.'"
     "'YES PLS'"
-    "Right as the party notification pings on my screen, I get a notification that A320 is online."
+    "Right as the party notification pops up on my screen, I get a notification that A320 is online."
 
     menu:
         "Uh-oh. I just agreed to join this person's party. What should I do?"
@@ -995,8 +1017,9 @@ label d1_mmo_zoomy:
     "It takes her a little bit to respond."
     "'OK. GOT MY OWN QUESTS TO COMPLETE'"
     "Zoomy and I complete several quests and join a few of their friends to do a raid on Whalebone Castle."
-    "We stay up to about 3 in the morning, killing off evil spirits and demons"
+    "We stay up to about 3 in the morning, killing off evil spirits and demons. "
     $ affinity_crj += 1
+    $ affinity_a320 -= 1
     jump gameEnd
 
 label d1_mmo_a320:
