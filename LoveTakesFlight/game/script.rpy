@@ -923,22 +923,22 @@ label d1_walkhome:
     a320 "Do you got any plans for tonight?"
 
     menu:
-        "I've got to study tonight. I could really use your help."
-            a320 "Oh, is that so~"
-            a320 "I suppose I can offer my assistance. Let's get to it."
+        "I've got to study tonight. I could really use your help.":
+            a320 "Oh, is that so?~"
+            a320 "Well, you were getting pretty behind in class. If you want to pass, I think we should not waste any time and get to it."
             if father_is_boeing:
                 "A320 grabs me by the hand and we both begin to run. 757 sees what is going on and rushes to keep up."
-                ""
+                757 "Hey, wait up, guys! We're not that far off from the house, there's no need to ruuunnnn-!"
             else:
                 "A320 grabs me by the hand and we both run the rest of the way home."
             jump d1_study
-        "I was thinking of going to the arcade. Care to join me?"
+        "I was thinking of going to the arcade. Care to join me?":
             a320 "Yeah! Let's meet up in a little bit! I got a few things I'd like to pick up! See you, then!"
             jump d1_arcade
-        "I was going to play Land of the Last Fantasy III. How about we meet up online?"
+        "I was going to play Land of the Last Fantasy III. How about we meet up online?":
             a320 "Sounds like a plan to me. See you online!"
             jump d1_mmo
-        
+
 
 label d1_study:
     v "DEVNOTE: You decide to study Flight Dynamics with A320. She quizzes you three times, allowing you to build up your brains score, (total of 1 point if you get all right) and gain .25 affinity with A320 for being a responsible student. "
@@ -954,14 +954,61 @@ label d1_study:
             jump d1_morgana
 
 label d1_arcade:
+    "After I stop by my house to drop my school stuff off, I meet up with A320 at the arcade"
+    a320 ""
     v "DEVNOTE: You meet up with A320 and both get beaten at a fighting game by a familiar face. A350, the girl that was introduced with you this morning to your class. You three go play a crane game and you win a stuffed cat. You are given a choice of who to give it to."
     v "DEVNOTE: +2 affinity with A320 if you give it to her (she loves cats), +1 affinity with A350 if you give it to her. +1 affinity with 757/A330 if you decide to give it to your sister. You also get the option to give it to 777 if your affinity with her is above 1.5 "
     jump gameEnd
 
 label d1_mmo:
-    v "DEVNOTE: You decide to play Land of Last Fantasy III with A320, when you receive a whisper from a mysterious character calling themselves only Zoomy McFrickHands (this is CRJ-chan)"
+    "After dinner, I boot up my desktop and load up 'Land of the Last Fantasy'."
+    "I grind at a nearby zone while I wait for A320"
+    "*Bling!*"
+    "... What's this? Someone whispered me on the game. I don't see anyone around. Who is this?"
+    "...'Zoomy McFrickHands'"
+    "'HEY. YOU ALSO DOING THE MAGUS QUEST FOR THE SLIME DROPS? JOIN MY PARTY?'"
+    "I'm not doing this quest, but I could go fetch it. It could be a good way to kill time until A320 logs in."
+    "I respond:"
+    "'SURE. SEND INVITE. WHERE YOU AT?'"
+    "'SAME AREA AS YOU. DIDN'T SEE ME?'"
+    "Sure enough, they walk over the hill and-"
+    "Holy shit! They are fully decked out! This person must either be on the game all day or knows some people!"
+    "'... CAN SHARE THE QUEST IF YOU DON'T HAVE IT.'"
+    "'YES PLS'"
+    "Right as the party notification pings on my screen, I get a notification that A320 is online."
+
+    menu:
+        "Uh-oh. I just agreed to join this person's party. What should I do?"
+        "Play with A320.":
+            jump d1_mmo_a320
+        "Play with Zoomy McFrickHands":
+            jump d1_mmo_zoomy
     v "DEVNOTE: You get the option to run rifts with A320 (+.25 affinity) or abandon her to play with Zoomy McFrickHands (she's better geared, +1 affinity with CRJ, -.5 with A320)  "
     v "DEVNOTE: If CRJ, you play late into the night with her, killing evil spirits and demons. If A320, she scolds you into going to bed because of school. "
+
+
+label d1_mmo_zoomy:
+    "I accept the invite"
+    "A320 pings me 'HEY, SO, WHAT ARE WE DOING TONIGHT? I GOT A FEW QUESTS'"
+    "I respond:"
+    "'ACTUALLY, I'M ALREADY PART OF A GROUP. WE CAN STILL CHAT, THOUGH'"
+    "It takes her a little bit to respond."
+    "'OK. GOT MY OWN QUESTS TO COMPLETE'"
+    "Zoomy and I complete several quests and join a few of their friends to do a raid on Whalebone Castle."
+    "We stay up to about 3 in the morning, killing off evil spirits and demons"
+    $ affinity_crj += 1
+    jump gameEnd
+
+label d1_mmo_a320:
+    "'ACTUALLY', I start off with"
+    "'MY FRIEND JUST CAME ONLINE. SORRY ABOUT THAT'"
+    "I decline the invite"
+    "Zoomy responds, 'NO WORRIES. HAVE A GOOD ONE.'"
+    "A320 and do a few quests, but overall goof off in a town and talk about school and an anime we both watch."
+    "10:00 rolls around and A320 calls it a night."
+    "I was going to continue playing, but A320 chastizes me for not minding my health."
+    "I exit the game and doze off to sleep."
+    $ affinity_a320 += .25
     jump gameEnd
 
 label d1_morgana:
