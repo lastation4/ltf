@@ -876,11 +876,69 @@ label d1_walkhome:
             757 "Do you think so?"
             a320 "Oh, I'm sure it'll be fine."
             a320 "It's your life, I wouldn't worry too much about that stuff"
+    else
+        "Crowds of students cluster in various places in front of the school, all possibly squeezing in whatever conversations they can before the teachers usher them away."
+        "There's really no need for me to loiter here. I'll make friends in due time"
+        "I head out the school's gates when someone puts a hand on my shoulder"
+        m "What the-"
+        "I turn and see A320."
+        a320 "Forgetting someone?"
+        m "N-no, of course I wouldn't forget you."
+        "I did forget."
+        "It's been so long since we lasted walked together that I didn't even consider the fact we could now."
+        a320 "Hey, where's your sister?"
+        m "Oh, she's probably back at school, talking with some of her friends."
+        m "Even then, I don't think she really wants to be seen with me."
+        a320 "Are you serious? What, she think she's too good for you?"
+        a320 "Psh, I remember back when she used to wet the bed."
+        a320 "Whatever, she can do whatever she wants, I guess, it's not like we want her around or anything."
+        m "Haha, the way you said that makes it sound like you are tsun for her or something."
+        a320 "What does that mean?"
+        m "It's a romance cliche in anime where... well... uh... nevermind. I guess I might just watch too much tv"
+        # A320 gives a mischivious grin
+        a320 "Oh, romance? I never took you to be the sort to be into that stuff."
+        "She puts her arm up to her head and speaks in a facetious tone"
+        a320 "Little ~~~, is all grown up! I'm guessing this means you got your eye on some hotties in your class, huh?"
+        "She nudges me"
 
-    v "DEVNOTE: You walk home with your sister (if Boeing) and your childhood friend A320. You make smalltalk about the day, and +1 affinity with A320 if you picked Airbus team. +1 with sister if you picked Boeing. No minuses. "
-    v "DEVNOTE: A320 teases you about if there are any hot girls in your class. Random event here to see if you have the confidence to call her hot to her face. Very low chance, but +1 affinity with A320 if you pull it off."
-    v "DEVNOTE: If you fail, you mention 777, and she teases you about being into older women (and you lose .25 affinity with A320). It's not like that...yet. "
-    v "DEVNOTE: BRANCH POINT: Do you study, go to the arcade, or play MMO games at home all night? "
+        if renpy.random.randint(1,20) == 20:
+            m "Yeah. You."
+            # a320 blushes
+            a320 "W-what?"
+            "I laugh at her"
+            a320 "Y-you idiot! Don't tease me that way!"
+            m "Haha, sorry, but it was you who started it!"
+            $ affinity_320 += 1
+        else:
+            m "Well, I did meet this girl..."
+            # a320's face goes neutral again
+            a320 "Oh. Did you get her name?"
+            m "Triple Seven"
+            a320 "Oh! I know her!"
+            a320 "What, you are into older women now?"
+            m "..."
+            a320 "I'm just teasing!"
+            $ affinity_320 -= 25
+    a320 "Oh, by the way..."
+    a320 "Do you got any plans for tonight?"
+
+    menu:
+        "I've got to study tonight. I could really use your help."
+            a320 "Oh, is that so~"
+            a320 "I suppose I can offer my assistance. Let's get to it."
+            if father_is_boeing:
+                "A320 grabs me by the hand and we both begin to run. 757 sees what is going on and rushes to keep up."
+                ""
+            else:
+                "A320 grabs me by the hand and we both run the rest of the way home."
+            jump d1_study
+        "I was thinking of going to the arcade. Care to join me?"
+            a320 "Yeah! Let's meet up in a little bit! I got a few things I'd like to pick up! See you, then!"
+            jump d1_arcade
+        "I was going to play Land of the Last Fantasy III. How about we meet up online?"
+            a320 "Sounds like a plan to me. See you online!"
+            jump d1_mmo
+        
 
 label d1_study:
     v "DEVNOTE: You decide to study Flight Dynamics with A320. She quizzes you three times, allowing you to build up your brains score, (total of 1 point if you get all right) and gain .25 affinity with A320 for being a responsible student. "
