@@ -970,15 +970,68 @@ label d1_arcade:
     A320 "Do you know her?"
     m "A320, this is our classmate, Trash Panda"
     a320 "Right, the other transfer student. Sorry I didn't recognize you from before."
-    a350 "It's okay. I generally try to keep a low profile. Can't have people interrupting my gaming session to talk about the weather."
+    a350 "It's okay. I generally try to keep a low profile. Can't have people interrupting my gaming sessions to talk about the weather."
     a320 "Speaking of which, shall we all resume our gaming?"
     "Trash Panda joins us on our outing. We all play the 'Ninja Frogs' game together and do a few songs on 'Dance Heros'"
     "As we wind down, I use up the last of my tokens on a claw machine."
     "On my very last token, I get ahold of a stuffed cat toy"
+    "The claw wobbles clumsily"
     "The cat slips."
-    "It narrowly makes out into the drop box"
+    "... but it narrowly makes out into the drop box"
+    "The girls both take notice of this"
     a320 "I can't believe you actually pulled that off!"
-    a350 "Nice. What are you gonna do with it? I like to keep mine in plush piles."
+    a350 "Nice. What are you gonna do with it?"
+
+    menu:
+        "What will I do with it?"
+        "Give it to A320":
+            a320 "What!? Really?"
+            m "Well, you love cats, don't you?"
+            a320 "You know it! I think I'll call her Masha."
+            m "Masha?"
+            a320 "What? Is there a problem with Masha?"
+            m "N-no! It's a good name!"
+            a320 "Damn right, it is..."
+            a320 "...Thanks again."
+        "Give it to Trash Panda":
+            a350 "For me...?"
+            a320 "What are you going to name them?"
+            a350 "..."
+            a350 "Tama"
+            m "Tama?"
+            a350 "Yeah. Tama. Like the train cat."
+            "Trash Panda cradles the cat in her arms"
+            a350 "Thanks."
+        "Save for sister":
+            a320 "Aw, aren't you a thoughtful brother?"
+            m "I guess? I just figured it might be her kind of thing."
+            if father_is_airbus:
+                a320 "Would she really appreciate the gesture, though...?"
+                m "I hope so."
+                a350 "Not a fan of plushes?"
+                m "Not really a fan of me. I don't know why, either."
+                m "It seems ever since she started High School, she's been really distant and, honestly, cruel."
+                a320 "It's not just you. She's been about the same to me, to be honest."
+                a350 "Wow, um, I'm sorry. Her loss, I guess?"
+            else
+                a320 "It would suit her, I think."
+                m "I hope she likes it"
+                a320 "If she doesn't, I can always take it off her hands"
+        if affinity_777 > 1.5:
+            "Give it to 777.":
+                a320 "Triple Seven? Didn't you two just meet?"
+                m "Yeah, but, she seems pretty cool. I figured it might be something she would like."
+                a320 "Haha. Or, perhaps, there might be more to it...?"
+                a350 "...?"
+
+    "Trash Panda glances up to the clock."
+    a350 "Oh, the time is getting late. I best be getting home before my mom decides to unplug my 'computer' again."
+    a350 "She might realize this time that she's only been taking my monitor, but I don't want to give her too many chances to figure that out."
+    a320 "Well, we best be heading on home ourselves."
+    "I walk A320 home. I head off to sleep as soon as I get back to my room."
+    "Today has been a good one."
+
+
     v "DEVNOTE: +2 affinity with A320 if you give it to her (she loves cats), +1 affinity with A350 if you give it to her. +1 affinity with 757/A330 if you decide to give it to your sister. You also get the option to give it to 777 if your affinity with her is above 1.5 "
     jump gameEnd
 
@@ -1005,8 +1058,6 @@ label d1_mmo:
             jump d1_mmo_a320
         "Play with Zoomy McFrickHands":
             jump d1_mmo_zoomy
-    v "DEVNOTE: You get the option to run rifts with A320 (+.25 affinity) or abandon her to play with Zoomy McFrickHands (she's better geared, +1 affinity with CRJ, -.5 with A320)  "
-    v "DEVNOTE: If CRJ, you play late into the night with her, killing evil spirits and demons. If A320, she scolds you into going to bed because of school. "
 
 
 label d1_mmo_zoomy:
