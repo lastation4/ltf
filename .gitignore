@@ -1,0 +1,7 @@
+*.save
+*.rpyc
+*.rpyb
+*.json
+persistent
+*.rpymc
+*.txt
