@@ -762,7 +762,7 @@ label d1_walkhome:
             757 "Do you think so?"
             a320 "Oh, I'm sure it'll be fine."
             a320 "It's your life, I wouldn't worry too much about that stuff"
-    else
+    else:
         "Crowds of students cluster in various places in front of the school, all possibly squeezing in whatever conversations they can before the teachers usher them away."
         "There's really no need for me to loiter here. I'll make friends in due time"
         "I head out the school's gates when someone puts a hand on my shoulder"
@@ -899,16 +899,20 @@ label d1_arcade:
                 m "It seems ever since she started High School, she's been really distant and, honestly, cruel."
                 a320 "It's not just you. She's been about the same to me, to be honest."
                 a350 "Wow, um, I'm sorry. Her loss, I guess?"
-            else
+            else:
                 a320 "It would suit her, I think."
                 m "I hope she likes it"
                 a320 "If she doesn't, I can always take it off her hands"
-        if affinity_777 > 1.5:
-            "Give it to 777.":
+        "Give it to 777.":
+            if affinity_777 > 1.5:
                 a320 "Triple Seven? Didn't you two just meet?"
                 m "Yeah, but, she seems pretty cool. I figured it might be something she would like."
                 a320 "Haha. Or, perhaps, there might be more to it...?"
                 a350 "...?"
+            else:
+                a320 "Triple Seven? Didn't you two just meet?"
+                m "You're right, it'd probably be too awkward at this stage. She is quite shy..."
+                a320 "Haha...you absolute loser!"
 
     "Trash Panda glances up to the clock."
     a350 "Oh, the time is getting late. I best be getting home before my mom decides to unplug my 'computer' again."
