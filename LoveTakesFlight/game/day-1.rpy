@@ -692,11 +692,13 @@ label d1_lunchtime:
         "Eat alone.":
             "You decide it is better that you don't bother 737 anymore for the day. "
 
-    v "DEVNOTE: You spend lunchtime alone on day 1, and depending on affinity, may notice that 737 does not have a lunch. Since she was so abrasive earlier, you don't question her motives, but make a mental note of it. "
-    v "DEVNOTE: 737 is actually quite poor and sometimes cannot afford a lunch, due to restrictions that have left her family quite broke. (737 MAX fiasco) [august edit: maybe if affinity is high enough shell talk briefly about it; only to then
-    shut down; or not want to talk about it any more. It could be timed out nicely with lunch bell ringing, and her quickly saying 'i have to go.. sorry...' if you develope more with 737 later on, you can get all of this story at a later date?]"
+    if prealpha == True:
+        v "DEVNOTE: You spend lunchtime alone on day 1, and depending on affinity, may notice that 737 does not have a lunch. Since she was so abrasive earlier, you don't question her motives, but make a mental note of it. "
+        v "DEVNOTE: 737 is actually quite poor and sometimes cannot afford a lunch, due to restrictions that have left her family quite broke. (737 MAX fiasco)"
+        v "august edit: maybe if affinity is high enough shell talk briefly about it; only to then shut down; or not want to talk about it any more. It could be timed out nicely with lunch bell ringing, and her quickly saying 'i have to go.. sorry...' if you develope more with 737 later on, you can get all of this story at a later date?"
 label d1_classroom_afternoon:
-    v "DEVNOTE: You have a pop quiz on Flight Dynamics and are called to answer a question a la Persona style. Gain .25 affinity if you get the question right, lose .5 affinity if you get it wrong..."
+    if prealpha == True:
+        v "DEVNOTE: You have a pop quiz on Flight Dynamics and are called to answer a question a la Persona style. Gain .25 affinity if you get the question right, lose .5 affinity if you get it wrong..."
 
 label d1_classroom_afterschool:
     if affinity_777 >= 1:
@@ -734,7 +736,8 @@ label d1_classroom_afterschool:
 
     else:
         jump d1_walkhome
-    v "DEVNOTE: You catch up with 777 on her way out of the school building (if your affinity is 1) and tell her about what team you chose. +1 affinity if you chose Boeing. +0 if you chose Airbus. You say goodbye to 777 and wish her a good night."
+    if prealpha == True:
+        v "DEVNOTE: You catch up with 777 on her way out of the school building (if your affinity is 1) and tell her about what team you chose. +1 affinity if you chose Boeing. +0 if you chose Airbus. You say goodbye to 777 and wish her a good night."
 
 label d1_walkhome:
     if father_is_boeing:
@@ -825,13 +828,11 @@ label d1_walkhome:
             a320 "Sounds like a plan to me. See you online!"
             jump d1_mmo
 
-
 label d1_study:
-    v "DEVNOTE: You decide to study Flight Dynamics with A320. She quizzes you three times, allowing you to build up your brains score, (total of 1 point if you get all right) and gain .25 affinity with A320 for being a responsible student. "
-    v "DEVNOTE: You finish studying early and both decide that you can either go to the arcade, or play Land of Last Fantasy III together. "
-    v "You can also decline this and go to bed like a limp dick. "
-
-
+    if prealpha == True:
+        v "DEVNOTE: You decide to study Flight Dynamics with A320. She quizzes you three times, allowing you to build up your brains score, (total of 1 point if you get all right) and gain .25 affinity with A320 for being a responsible student. "
+        v "DEVNOTE: You finish studying early and both decide that you can either go to the arcade, or play Land of Last Fantasy III together. "
+        v "You can also decline this and go to bed like a limp dick. "
     menu:
         "What should A320 and I do now that we're done studying?"
         "We should go to the arcade!":
@@ -921,8 +922,8 @@ label d1_arcade:
     "I walk A320 home. I head off to sleep as soon as I get back to my room."
     "Today has been a good one."
 
-
-    v "DEVNOTE: +2 affinity with A320 if you give it to her (she loves cats), +1 affinity with A350 if you give it to her. +1 affinity with 757/A330 if you decide to give it to your sister. You also get the option to give it to 777 if your affinity with her is above 1.5 "
+    if prealpha == True:
+        v "DEVNOTE: +2 affinity with A320 if you give it to her (she loves cats), +1 affinity with A350 if you give it to her. +1 affinity with 757/A330 if you decide to give it to your sister. You also get the option to give it to 777 if your affinity with her is above 1.5 "
     jump gameEnd
 
 label d1_mmo:
@@ -975,7 +976,8 @@ label d1_mmo_a320:
 
 label d1_morgana:
     v "You walk A320 back to her house and bid her goodnight."
-    v "DEVNOTE: You limp dick, go to the shame bed."
+    if prealpha == True:
+        v "DEVNOTE: You limp dick, go to the shame bed."
     jump gameEnd
 
 

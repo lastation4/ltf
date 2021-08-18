@@ -3,6 +3,9 @@
 # disable the back button, cause you have to save scum
 define config.rollback_enabled = True
 
+# Define a prealpha switch that toggles devnotes on or not
+define prealpha = True
+
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
@@ -65,7 +68,7 @@ define wis = 0
 
 #general flags go here
 
-define prealpha = False
+
 
 # The game starts here.
 
