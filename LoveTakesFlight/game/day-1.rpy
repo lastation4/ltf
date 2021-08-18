@@ -1,131 +1,17 @@
-﻿# The script of the game goes in this file.
+﻿#########################################################################################################################
+#   Day 1 - Starting your new life at school                                                                            #
+#########################################################################################################################
 
-# disable the back button, cause you have to save scum
-define config.rollback_enabled = True
+# Begin Day 1 Flags
 
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
-
-#define some administrative characters
-define v = Character("lastation4")
-define nameunknown = Character("???")
-define two = Character("The Two of You")
-
-#define yourself...wow that's deep
-define m = Character("You")
-
-#define your family
-define father = Character("Father")
-define a330 = Character("Airbus A330-300")
-define b757 = Character("Boeing 757-200")
-
-#define side characters
-
-define airbus_chair = Character("Airbus Chairman")
-define boeing_chair = Character("Boeing Chairman")
-
-#define some gorls
-define b777 = Character("Boeing 777-300ER")
-define a320 = Character("Airbus A320 neo")
-define b737 = Character("Boeing 737-800")
-define b747 = Character("Boeing 747-8")
-define crj = Character("Bombardier CRJ-900")
-define erj = Character("Embraer ERJ-190")
-define a350 = Character("Airbus A350-900")
-define a340 = Character("Airbus A340-600")
-
-#begin to define stats here
-#a330 doesn't like you that much, but you're still family, hence, set to -2
-define affinity_a330 = -2
-#757 loves her older sibling, so she's set to 2.
-define affinity_757 = 2
-define affinity_777 = 0
-#a320 is set to 5 because she's your childhood friend
-define affinity_a320 = 5
-#737 is a tsundere, so -2 to you!
-define affinity_737 = -2
-define affinity_crj = 0
-define affinity_erj = 0
-define affinity_747 = 0
-define affinity_a350 = 0
-#a340 is set to -5 because she's supposed to be VERY HARD TO GET
-define affinity_a340 = -5
-
-#define character attributes
-#INT shows how smart you are, you'll have an easier time impressing girls that like INT
-define intel = 0
-#confidence shows how ballsy you are.
-define confidence = 0
-#CHA shows how charming you are to others, like INT, this will make charming the panties off the girls easier
-define cha = 0
-#DEX defines how good you are at manual tasks, like jobs, example: helping A320 with her lawnmowing business
-define dex = 0
-#WIS is a special stat that will help you make the right decision for girls that you have over 5 affinity with.
-define wis = 0
-
-#flags go here
-define with_777 = False
-define prealpha = False
 define selected_boeing = False
 define selected_airbus = False
+define d1_played_mmo_with_zoomy = False
+define with_777 = False
 
-# The game starts here.
+# End Day 1 Flags
 
-label start:
-
-    scene bg prealpha
-
-    if prealpha == True:
-        jump alphatest
-    else:
-        jump gameStart
-
-label alphatest:
-
-    v "Hello, and welcome to the pre-alpha of Love Takes Flight!"
-
-    v "If you're seeing this, everything is working well!"
-
-    v "Here's a showcase of the sprites for now to make sure everything is loading right!"
-
-    show 737
-
-    v "This is 737, she's a tsundere."
-
-    hide 737
-
-    show 747
-
-    v "This is 747, she's a himedere."
-
-    hide 747
-
-    show 777
-
-    v "This is 777, she's total waifu material."
-
-    hide 777
-
-    show crj
-
-    v "This is CRJ. She's based off of pre-transition Maxwell. Obviously the best plane."
-
-    hide crj
-
-    show erj
-
-    v "This is ERJ. She's a homo."
-
-    hide erj
-
-    v "That's all for now. Enjoy the pre-alpha!"
-
-
-    scene black with dissolve
-
-    jump gameEnd
-
-label gameStart:
+label d1_gameStart:
 
     scene bg sky
 
@@ -191,7 +77,7 @@ label gameStart:
         "You sigh. She's always been this hyper. You decide to head downstairs and meet up with your father."
     scene black with dissolve
 
-label driveToSchool:
+label d1_driveToSchool:
     scene bg car
     if father_is_airbus:
         "You and A330 get into the car with your father."
@@ -286,7 +172,7 @@ label driveToSchool:
 
     scene black with dissolve
 
-label arriveAtSchool:
+label d1_arriveAtSchool:
     scene bg car
 
     "A bell chimes in the distance...You'd better hurry off to the opening ceremony!"
@@ -342,13 +228,13 @@ label arriveAtSchool:
     menu:
         "She's trying to make small talk with you...better change the subject..."
         "Y...yeah...weather's been nice...":
-            jump b777_smalltalk
+            jump d1_b777_smalltalk
         "So 777, I see you're a third year, mind asking what team are you on?":
-            jump b777_classrank
+            jump d1_b777_classrank
         "...":
-            jump b777_noresponse
+            jump d1_b777_noresponse
 
-label b777_classrank:
+label d1_b777_classrank:
     $ affinity_777 -= 1
 
     #show 777_disappointed
@@ -357,15 +243,15 @@ label b777_classrank:
     "She's a Boeing girl, I should have known that!"
     "Now I look like an idiot!"
 
-    jump walkToGym
+    jump d1_walkToGym
 
-label b777_smalltalk:
+label d1_b777_smalltalk:
     #no affinity gain for smalltalk
     #show 777_finger_poke_together
     b777 "..."
-    jump walkToGym
+    jump d1_walkToGym
 
-label b777_noresponse:
+label d1_b777_noresponse:
     $ affinity_777 += 1
     #show 777_finger_poke_together
     b777 "Y-you're a transfer student, right?"
@@ -381,7 +267,7 @@ label b777_noresponse:
     else:
         m "Guess I've been watching too many gameshows. Sorry."
 
-label walkToGym:
+label d1_walkToGym:
     scene bg gym_outside
 
     m "Looks like we made it on time!"
@@ -395,11 +281,11 @@ label walkToGym:
             "There are two seats over there! Let's grab them!":
                 $ confidence += 1
                 $ affinity_777 += .25
-                jump oc_777_sitwith
+                jump d1_oc_777_sitwith
 
             "I'll see you later, I should sit with my classmates. ":
                 $ affinity_777 -= .25
-                jump oc_777_bye
+                jump d1_oc_777_bye
     elif affinity_777 == 0:
         m "Hey, I see two seats over there, we should get them!"
         #show 777_surprised
@@ -413,10 +299,10 @@ label walkToGym:
                 #show 777_poke_finger_together
                 $ confidence +=.5
                 $ affinity_777 += .25
-                jump oc_777_sitwith
+                jump d1_oc_777_sitwith
             "You're right, I'll see you around then.":
                 $ affinity_777 -= .25
-                jump oc_777_bye
+                jump d1_oc_777_bye
 
     else:
         m "I see a seat over there, I'll see you later, yeah 777?"
@@ -426,15 +312,15 @@ label walkToGym:
         "You find a seat in the back row; there are not many open ones left."
         jump openingCeremony
 
-label oc_777_sitwith:
+label d1_oc_777_sitwith:
     #show 777_flustered
     $ with_777 = True
     b777 "O-okay, that works, let's grab them before anyone else does."
     hide 777_flustered with moveoutleft
     "The two of you hurry off to take your seats before the ceremony starts."
-    jump openingCeremony
+    jump d1_openingCeremony
 
-label oc_777_bye:
+label d1_oc_777_bye:
     $ with_777 = False
     #show 777_disappointed
     "777 makes it obvious that she wanted to sit with you..."
@@ -444,9 +330,9 @@ label oc_777_bye:
     "She hurries off."
     "Maybe you should have invited her to sit with you...there are two open seats next to each other over there..."
     m "She's an upperclassmen, she's obviously got more important things to do than to sit with the transfer student..."
-    jump openingCeremony
+    jump d1_openingCeremony
 
-label openingCeremony:
+label d1_openingCeremony:
     scene bg gym_stage
 
     nameunknown "Ahem. Quiet please, quiet. "
@@ -534,7 +420,7 @@ label d1_challenge_747:
     hide 747
     scene black with dissolve
 
-label afterCeremony:
+label d1_afterCeremony:
     scene outside_gym
     if with_777:
         show 777
@@ -606,7 +492,7 @@ label d1_classroom_morning:
 
     "..."
     # the most important decision of the game
-label the_selection:
+label d1_the_selection:
     menu:
         "...which team will I select?"
         "Boeing":
@@ -806,11 +692,13 @@ label d1_lunchtime:
         "Eat alone.":
             "You decide it is better that you don't bother 737 anymore for the day. "
 
-    v "DEVNOTE: You spend lunchtime alone on day 1, and depending on affinity, may notice that 737 does not have a lunch. Since she was so abrasive earlier, you don't question her motives, but make a mental note of it. "
-    v "DEVNOTE: 737 is actually quite poor and sometimes cannot afford a lunch, due to restrictions that have left her family quite broke. (737 MAX fiasco) [august edit: maybe if affinity is high enough shell talk briefly about it; only to then
-    shut down; or not want to talk about it any more. It could be timed out nicely with lunch bell ringing, and her quickly saying 'i have to go.. sorry...' if you develope more with 737 later on, you can get all of this story at a later date?]"
+    if prealpha == True:
+        v "DEVNOTE: You spend lunchtime alone on day 1, and depending on affinity, may notice that 737 does not have a lunch. Since she was so abrasive earlier, you don't question her motives, but make a mental note of it. "
+        v "DEVNOTE: 737 is actually quite poor and sometimes cannot afford a lunch, due to restrictions that have left her family quite broke. (737 MAX fiasco)"
+        v "august edit: maybe if affinity is high enough shell talk briefly about it; only to then shut down; or not want to talk about it any more. It could be timed out nicely with lunch bell ringing, and her quickly saying 'i have to go.. sorry...' if you develope more with 737 later on, you can get all of this story at a later date?"
 label d1_classroom_afternoon:
-    v "DEVNOTE: You have a pop quiz on Flight Dynamics and are called to answer a question a la Persona style. Gain .25 affinity if you get the question right, lose .5 affinity if you get it wrong..."
+    if prealpha == True:
+        v "DEVNOTE: You have a pop quiz on Flight Dynamics and are called to answer a question a la Persona style. Gain .25 affinity if you get the question right, lose .5 affinity if you get it wrong..."
 
 label d1_classroom_afterschool:
     if affinity_777 >= 1:
@@ -848,7 +736,8 @@ label d1_classroom_afterschool:
 
     else:
         jump d1_walkhome
-    v "DEVNOTE: You catch up with 777 on her way out of the school building (if your affinity is 1) and tell her about what team you chose. +1 affinity if you chose Boeing. +0 if you chose Airbus. You say goodbye to 777 and wish her a good night."
+    if prealpha == True:
+        v "DEVNOTE: You catch up with 777 on her way out of the school building (if your affinity is 1) and tell her about what team you chose. +1 affinity if you chose Boeing. +0 if you chose Airbus. You say goodbye to 777 and wish her a good night."
 
 label d1_walkhome:
     if father_is_boeing:
@@ -876,7 +765,7 @@ label d1_walkhome:
             757 "Do you think so?"
             a320 "Oh, I'm sure it'll be fine."
             a320 "It's your life, I wouldn't worry too much about that stuff"
-    else
+    else:
         "Crowds of students cluster in various places in front of the school, all possibly squeezing in whatever conversations they can before the teachers usher them away."
         "There's really no need for me to loiter here. I'll make friends in due time"
         "I head out the school's gates when someone puts a hand on my shoulder"
@@ -939,13 +828,11 @@ label d1_walkhome:
             a320 "Sounds like a plan to me. See you online!"
             jump d1_mmo
 
-
 label d1_study:
-    v "DEVNOTE: You decide to study Flight Dynamics with A320. She quizzes you three times, allowing you to build up your brains score, (total of 1 point if you get all right) and gain .25 affinity with A320 for being a responsible student. "
-    v "DEVNOTE: You finish studying early and both decide that you can either go to the arcade, or play Land of Last Fantasy III together. "
-    v "You can also decline this and go to bed like a limp dick. "
-
-
+    if prealpha == True:
+        v "DEVNOTE: You decide to study Flight Dynamics with A320. She quizzes you three times, allowing you to build up your brains score, (total of 1 point if you get all right) and gain .25 affinity with A320 for being a responsible student. "
+        v "DEVNOTE: You finish studying early and both decide that you can either go to the arcade, or play Land of Last Fantasy III together. "
+        v "You can also decline this and go to bed like a limp dick. "
     menu:
         "What should A320 and I do now that we're done studying?"
         "We should go to the arcade!":
@@ -1013,16 +900,20 @@ label d1_arcade:
                 m "It seems ever since she started High School, she's been really distant and, honestly, cruel."
                 a320 "It's not just you. She's been about the same to me, to be honest."
                 a350 "Wow, um, I'm sorry. Her loss, I guess?"
-            else
+            else:
                 a320 "It would suit her, I think."
                 m "I hope she likes it"
                 a320 "If she doesn't, I can always take it off her hands"
-        if affinity_777 > 1.5:
-            "Give it to 777.":
+        "Give it to 777.":
+            if affinity_777 > 1.5:
                 a320 "Triple Seven? Didn't you two just meet?"
                 m "Yeah, but, she seems pretty cool. I figured it might be something she would like."
                 a320 "Haha. Or, perhaps, there might be more to it...?"
                 a350 "...?"
+            else:
+                a320 "Triple Seven? Didn't you two just meet?"
+                m "You're right, it'd probably be too awkward at this stage. She is quite shy..."
+                a320 "Haha...you absolute loser!"
 
     "Trash Panda glances up to the clock."
     a350 "Oh, the time is getting late. I best be getting home before my mom decides to unplug my 'computer' again."
@@ -1031,8 +922,8 @@ label d1_arcade:
     "I walk A320 home. I head off to sleep as soon as I get back to my room."
     "Today has been a good one."
 
-
-    v "DEVNOTE: +2 affinity with A320 if you give it to her (she loves cats), +1 affinity with A350 if you give it to her. +1 affinity with 757/A330 if you decide to give it to your sister. You also get the option to give it to 777 if your affinity with her is above 1.5 "
+    if prealpha == True:
+        v "DEVNOTE: +2 affinity with A320 if you give it to her (she loves cats), +1 affinity with A350 if you give it to her. +1 affinity with 757/A330 if you decide to give it to your sister. You also get the option to give it to 777 if your affinity with her is above 1.5 "
     jump gameEnd
 
 label d1_mmo:
@@ -1071,7 +962,6 @@ label d1_mmo_zoomy:
     "We stay up to about 3 in the morning, killing off evil spirits and demons. "
     $ affinity_crj += 1
     $ affinity_a320 -= 1
-    jump gameEnd
 
 label d1_mmo_a320:
     "'ACTUALLY', I start off with"
@@ -1083,14 +973,11 @@ label d1_mmo_a320:
     "I was going to continue playing, but A320 chastizes me for not minding my health."
     "I exit the game and doze off to sleep."
     $ affinity_a320 += .25
-    jump gameEnd
 
 label d1_morgana:
     v "You walk A320 back to her house and bid her goodnight."
-    v "DEVNOTE: You limp dick, go to the shame bed."
+    if prealpha == True:
+        v "DEVNOTE: You limp dick, go to the shame bed."
     jump gameEnd
 
-label gameEnd:
-    # This ends the game.
-    v "This is the end of this pre-alpha test of Day 1"
-    return
+
