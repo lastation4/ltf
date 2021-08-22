@@ -1,4 +1,4 @@
-﻿#########################################################################################################################
+#########################################################################################################################
 #   Day 1 - Starting your new life at school                                                                            #
 #########################################################################################################################
 
@@ -442,11 +442,12 @@ label d1_afterCeremony:
         show a330
         "You see your sister, A330, in the crowd. Being the only familiar face you can see you make your way towards her."
         "She spots you. She doesn't look too happy to see you..."
+        "She looks back at her phone. You can see her increasing the volume. You hover nearby for a bit."
         a330 "..."
-        a330 "Are you trying to humiliate me? It's hard enough to make friends without you repelling other people away."
+        a330 "Are you trying to humiliate me? It's hard enough to make friends without you acting as a repellent."
         m "Sorry, I figured it would be best to stick together."
         a330 "Of course you would. Just try not to draw too much attention to yourself."
-        a330 "It seems you have chased one person away already, as it is. I probably can't talk to that 777 girl anymore thanks to you."
+        a330 "I saw that you've already managed to burn a bridge. I probably can't talk to that 777 girl anymore thanks to you."
         "..."
         a330 "Just get to your class already..."
         "She practically runs away from you."
@@ -471,7 +472,7 @@ label d1_classroom_morning:
     "I finally find my classroom. The desks are still for the most part empty."
     "There are desks over by the window. I decide to take the one that is second to back."
     "Maybe I can get a good view of the training port from here? I might even see one of the hikokiko in flight..."
-    "The other students trickle in one by one. The boys in class all crowd towards the front seats."
+    "The other students trickle in one by one. You notice that the guys in class all crowd towards the front seats."
     "Strange."
     "Back in my old school, students would try to sit in the back to avoid the teacher's attention."
     "Perhaps, that's the difference between an average and a prestigious school."
@@ -533,11 +534,13 @@ label d1_the_selection:
     a340 "Well, why don't you both tell us a little bit more about yourselves?"
 
     show a340 at right
+    "The other transfer student steps forward. She looks down at a slightly off-colored tile as she introduces herself."
     show a350 at left
     a350 "Hullo. I'm A350, but some of my friends call me Trash Panda."
     a350 "I, um, like anime, manga, anime music and I like to collect figurines."
     a350 "..."
-    a350 "From anime."
+    a350 "Of anime characters."
+    "She quietly taps her foot and seemingly looks for another spot on the floor to stare at."
     a350 "... That's all"
     hide a350
     show a340 at center
@@ -554,6 +557,8 @@ label d1_the_selection:
     m "I like anime and manga as well, so I guess we share something in common A350. I hope we get along."
 
     show a350 at left
+
+    "At the mention of anime, she raises her head up."
 
     a350 "!!!"
 
@@ -587,7 +592,7 @@ label d1_the_selection:
             "Mine now.":
                 nameunknown "Ex-CUSE me?"
                 nameunknown "Where do you get off stealing other people's property?"
-                m "I'm just kidding! Why would anyone want to steal a pencil? They're like fifty cents! Here you go."
+                m "I-I'm just kidding! Why would anyone want to steal a pencil? They're like fifty cents! Here you go."
                 nameunknown "R-right. Of course, that would be silly."
             "...":
                 nameunknown "What, do I got something on my face? Give that back already!"
@@ -597,9 +602,13 @@ label d1_the_selection:
                 hide 737
         "We proceed with our assignment with the awkward silence between the two of us."
         "I sorta want to try to strike up conversation with her... Considering she sits next to me, it would suck for class to be tense like this everyday"
+
+        if father_is_airbus:
+            "It's bad enough that it's like this at home, as it is."
+
         m "So, my name is ~~~... What is yours?"
         show 737 at right
-        "The girl looks up from her desk, seemingly unsure if I was speaking with her"
+        "The girl looks up from her desk. She turns her head slightly, as if checking if there was someone else I could be talking to."
         nameunknown "I am 737, I suppose. What's it to you?"
         m "Not anything. I just figured that, since we are sitting near each other, it's worth at least knowing each others names."
         "She goes back to looking at her assignment."
@@ -665,7 +674,9 @@ label d1_the_selection:
             a320 "A...anyway! We need to move on to the next formula!"
             $ affinity_a320 += 1
 
-    "Class goes on without any further events."
+        hide a320
+
+    "Class continues uneventfully."
     "The rest of the day, the students spend doing practice problems with sensei periodically helping the ones struggling."
 
     if selected_boeing:
@@ -678,7 +689,7 @@ label d1_lunchtime:
     "Everyone else is clustered among their own friends. Naturally, being the fresh transfer student leaves you to eat alone."
     "You see 737 sitting by herself."
     "She isn't eating."
-    "Did she forget her food? It's entirely possible she's the sort to not bother with lunch."
+    "Did she forget her food? You don't know her very well, she could be the sort to skip the meal altogether."
     "You start eating your food."
     "She seems to be staring at other people's trays."
 
@@ -690,7 +701,7 @@ label d1_lunchtime:
         "Go sit with 737.":
             "You decide to go sit with 737."
         "Eat alone.":
-            "You decide it is better that you don't bother 737 anymore for the day. "
+            "You decide it is better that you don't bother 737 anymore for the day."
 
     if prealpha == True:
         v "DEVNOTE: You spend lunchtime alone on day 1, and depending on affinity, may notice that 737 does not have a lunch. Since she was so abrasive earlier, you don't question her motives, but make a mental note of it. "
@@ -979,5 +990,3 @@ label d1_morgana:
     if prealpha == True:
         v "DEVNOTE: You limp dick, go to the shame bed."
     jump gameEnd
-
-
